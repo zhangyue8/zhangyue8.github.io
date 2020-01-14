@@ -3,7 +3,7 @@ function myMove() {
     var pos = 0;
     var id = setInterval(frame, 5);
     function frame() {
-      if (pos == 400) {
+      if (pos == 450) {
         clearInterval(id);
       } else {
         pos++; 
