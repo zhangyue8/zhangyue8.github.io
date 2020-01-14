@@ -7,13 +7,13 @@ window.onload=function()
 	//获取img标签中的第一个元素结点
 	var img=document.getElementsByTagName("img")[0];
 	//创建一个数组用来保存图片的路径（即src属性）
-	var imgarr=["img/1.jpg","img/2.jpg","img/3.jpg","img/4.jpg","img/5.jpg"];
+	var imgarr=["01-09_resource/marble-1.jpg","01-09_resource/marble-2.jpg","01-09_resource/marble-3.jpg","01-09_resource/marble-4.jpg","01-09_resource/marble-5.jpg"];
 	//设置数组的索引下标
 	 var index=0;
 	 //获取p标签
 	var pbq=document.getElementById("pid");
 	//设置提醒文字
-	pbq.innerHTML="共有"+imgarr.length+"张图片,当前第"+(index+1)+"张";
+	pbq.innerHTML="All have"+imgarr.length+"pictures, now is NO."+(index+1);
 	//绑定事件
 	bt1.onclick=function()
 	{
@@ -27,7 +27,7 @@ window.onload=function()
 		//修改img的src属性
 		img.src=imgarr[index];
 		//当点击按钮以后，重新设置p标签中的显示内容
-		pbq.innerHTML="共有"+imgarr.length+"张图片,当前第"+(index+1)+"张";
+		pbq.innerHTML="All have"+imgarr.length+"pictures, now is NO."+(index+1);
 	};
 	//绑定事件
 	bt2.onclick=function()
@@ -42,6 +42,6 @@ window.onload=function()
 		//修改img的src属性
 		img.src=imgarr[index];
 		//当点击按钮以后，重新设置p标签中的显示内容
-		pbq.innerHTML="共有"+imgarr.length+"张图片,当前第"+(index+1)+"张";
+		pbq.innerHTML="All have"+imgarr.length+"pictures, now is NO."+(index+1);
 	};
 };
