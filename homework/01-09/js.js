@@ -11,7 +11,7 @@ window.onload=function()
 	 //获取p标签
 	var pbq=document.getElementById("pid");
 	//设置提醒文字
-	pbq.innerHTML="All have"+imgarr.length+"pictures, now is NO."+(index+1);
+	pbq.innerHTML="All have "+imgarr.length+" pictures, now is NO."+(index+1);
 	//绑定事件
 	bt1.onclick=function()
 	{
@@ -40,6 +40,6 @@ window.onload=function()
 		//修改img的src属性
 		img.src=imgarr[index];
 		//当点击按钮以后，重新设置p标签中的显示内容
-		pbq.innerHTML="All have"+imgarr.length+"pictures, now is NO."+(index+1);
+		pbq.innerHTML="All have "+imgarr.length+" pictures, now is NO."+(index+1);
 	};
 };
