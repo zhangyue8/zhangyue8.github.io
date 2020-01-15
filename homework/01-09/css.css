@@ -5,7 +5,7 @@
 
 #outer{
 	width:600px;/*图片的宽高度自适应*/
-	padding:1000px;/*内边距为10*/
+	padding:100px;/*内边距为10*/
 	margin:600px auto;/*让整个div居中*/
 	background-color:#66FFFF;/*设置背景颜色*/
 	text-align:center;/*使按钮居中*/
