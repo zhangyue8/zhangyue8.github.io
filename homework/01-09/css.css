@@ -5,13 +5,14 @@
 
 body{
     background-color: rgb(246, 245, 233);
-    font-size: 30px;
 
 }
 
 #header{
     font-family: 'Times New Roman', Times, serif;
     text-align: center;
+    font-size: 30px;
+
 
 
 }
