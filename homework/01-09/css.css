@@ -22,3 +22,10 @@ body{
 	background-color:rgb(246, 241, 196);/*设置背景颜色*/
 	text-align:center;/*使按钮居中*/
 }
+
+#pid{
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 20px;
+
+
+}
