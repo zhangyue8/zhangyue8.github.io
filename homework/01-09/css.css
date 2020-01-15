@@ -25,7 +25,7 @@ body{
 #outer{
 	width:600px;/*图片的宽高度自适应*/
 	padding:10px;/*内边距为10*/
-	margin:600px auto;/*让整个div居中*/
+	margin:600px ;/*让整个div居中*/
 	background-color:rgb(246, 241, 196);/*设置背景颜色*/
 	text-align:center;/*使按钮居中*/
 }
