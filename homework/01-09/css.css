@@ -3,6 +3,12 @@
 	padding:0px;
 }
 
+#header{
+    text-align: center;
+
+
+}
+
 #outer{
 	width:600px;/*图片的宽高度自适应*/
 	padding:100px;/*内边距为10*/
