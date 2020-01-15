@@ -5,6 +5,11 @@
 
 body{
     background-color: rgb(246, 245, 233);
+}
+
+#content{
+    text-align: center;
+    color: rgb(87, 87, 87);
 
 }
 
@@ -13,9 +18,6 @@ body{
     text-align: center;
     color: rgb(78, 62, 62);
     font-size: 80px;
-
-
-
 }
 
 #outer{
