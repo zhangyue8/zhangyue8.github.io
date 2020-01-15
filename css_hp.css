@@ -14,7 +14,7 @@ html, body {
 body{
 
   background-image: url(resource/me.jpg);
-
+  background-size: 100px;
   background-position:right bottom;
   background-repeat :no-repeat;
   background-attachment:fixed;
