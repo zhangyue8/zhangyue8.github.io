@@ -1,7 +1,5 @@
-//onload的作用是等事件加载完以后才执行此程序
 window.onload=function()
 {
-	//获取按钮事件
 	var bt1=document.getElementById("pre");
 	var bt2=document.getElementById("next");
 	//获取img标签中的第一个元素结点
