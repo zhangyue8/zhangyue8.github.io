@@ -9,6 +9,8 @@ body{
 
 #content{
     text-align: center;
+    font-family: serif;
+    font-size: 20px;
     color: rgb(87, 87, 87);
 
 }
