@@ -27,12 +27,10 @@ window.onload=function()
 		//当点击按钮以后，重新设置p标签中的显示内容
 		pbq.innerHTML="All have "+imgarr.length+" pictures, now is NO."+(index+1);
 	};
-	//绑定事件
-	bt2.onclick=function()
+
+    bt2.onclick=function()
 	{
-		//书写事件驱动程序
-		index++;//切换到下一张索引自加
-		//判断索引是否大于4
+		index++;
 		if(index>imgarr.length-1)
 		{
 			index=0;//目的是可以实现循环切换
