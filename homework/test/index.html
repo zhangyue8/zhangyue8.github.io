@@ -6,12 +6,67 @@
         <script src="https://d3js.org/d3.v4.min.js"></script>
     </head>
     <body>
+        <h1 id="lable"></h1>
+        <p>
+            There are currently <span id="users"></span> users on Data USA.
+        </p>
+
+
+
+
+
+
+
         <script>
-            d3.csv("data.csv",function(error,data){
-            console.log("error:",error);
-            console.log("data:",data);
+
+            var data =[];
+
+
+            function convert2numbers(d,i){
+                d.value=+d.value;
+                }
+                
+            function drawLable(){
+                d3.select('#lable').html(data[0].value)
+            }
+            function analyzeData(error,newData){
+
+                data.forEach(convert2numbers);
+
+                console.log("error:",error);
+                console.log("newData:",data);
+
+                data=newData
+                drawLable();
+            }
+
+            d3.csv("data.csv",analyzeData);
+            d3.json("data.json", analyzeData);
+            console.log("HEllo Dave!");
+
+            var url ="http://datausa.io/api/data?measure=Household%20Income%20by%20Race,Household%20Income%20by%20Race%20Moe&Geography=16000US2138836:parents,16000US2138836,16000US2138836:similar";
+
+            d3.json(url, function(error,data){
+                console.log(data);
             });
             
+            var realtimeURL="https://whiteboard.datawheel.us/api/google-analytics/realtime/111999474";
+            var frequency = 3*1000;
+
+            function fetchData(){
+                d3.json(realtimeURL, function(error,users){
+                console.log("users:",users);
+                d3.select('#users').html(users);
+            });
+
+            }
+            fetchData();
+
+            setInterval(fetchData,frequency);
+
+
+            
+
         
         
         </script>
