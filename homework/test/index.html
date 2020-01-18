@@ -62,7 +62,7 @@
 
             function fetchData(){
                 d3.json(realtimeURL, function(error,users){
-                console.log("users:",users);
+                // console.log("users:",users);
                 d3.select('#users').html(users);
             });
 
