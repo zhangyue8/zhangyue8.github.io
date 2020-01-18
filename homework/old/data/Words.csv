@@ -1,0 +1,148 @@
+Radical,group,Chinese_Word,Meaning,Pinyin,Tone
+水/氵     Water,1,江,big river,jiang,①
+水/氵     Water,1,沉,"submerged in the water, sinking",chen,②
+水/氵     Water,1,湖,big lake,hu,②
+水/氵     Water,1,海,"sea, ocean",hai,③
+水/氵     Water,1,溪,"brook, rivulet",xi ,①
+水/氵     Water,1,汗,"sweat, perspiration",han,④
+水/氵     Water,1,港,"port, harbor",gang ,③
+水/氵     Water,1,污,dirty water,wu ,①
+水/氵     Water,1,洗,wash,xi ,③
+水/氵     Water,1,澡,"bath, bathe",zao ,③
+水/氵     Water,1,汁,juice,zhi ,①
+水/氵     Water,1,汤,"soup, hot water",tang,①
+火/灬     Fire,2,烧,burn ,shao,①
+火/灬     Fire,2,灯,"light, lamp",deng,①
+火/灬     Fire,2,灶,"kitchen, oven",zao,④
+火/灬     Fire,2,烤,"toast, bake, roast",kao,③
+火/灬     Fire,2,炙,"roast, broil",zhi,④
+火/灬     Fire,2,煮,boil,zhu,③
+火/灬     Fire,2,灭,"put out the fire, exterminate",mie,④
+火/灬     Fire,2,灰,"ash, grey",hui,①
+火/灬     Fire,2,灾,"disaster, calamity, unluckiness",zai ,①
+火/灬     Fire,2,炉,"stove, furnace",lu,②
+火/灬     Fire,2,焚,burn,fen,②
+火/灬     Fire,2,煤,"coal, black diamond",mei ,②
+火/灬     Fire,2,烟,"smoke, smoking, cigarettes",yan ,①
+火/灬     Fire,2,烫,"burn, scald, very hot",tang ,④
+火/灬     Fire,2,炸,"fry, bomb, blast, explode, brust",zha ,①
+火/灬     Fire,2,炒,"fry, cook",chao,③
+鸟     Bird,3,鹰,"eagle, hawk",ying,①
+鸟     Bird,3,鸽,"pigeon, dove",ge,①
+鸟     Bird,3,鸡,"chicken, hen",ji,①
+鸟     Bird,3,鸭,duck,ya,①
+鸟     Bird,3,鹅,goose,e,③
+牛     Cattle,4,牲,domestic animal,sheng,①
+牛     Cattle,4,牺,sacrifice,xi,①
+牛     Cattle,4,犊,"baby cattle, baby animal",du,②
+草/艹     Plant,5,芒,mango,mang,②
+草/艹     Plant,5,芛,bamboo shoot,sun,③
+草/艹     Plant,5,苗,young plant,miao,②
+草/艹     Plant,5,药,"medicine, herb",yao,④
+草/艹     Plant,5,菇,mushroom,gu,①
+草/艹     Plant,5,菌,fungus,jun,①
+草/艹     Plant,5,芯,stamen,xin,①
+草/艹     Plant,5,花,flower,hua,①
+口     Mouth,6,叫,call,jiao,④
+口     Mouth,6,品,taste,pin ,③
+口     Mouth,6,吃,eat,chi ,①
+口     Mouth,6,吞,swallow,tun ,①
+人/亻     Person/People,7,你,you ,ni ,③
+人/亻     Person/People,7,他,"he, his, him",ta ,①
+人/亻     Person/People,7,仇,enemy,chou ,②
+人/亻     Person/People,7,仆,servant,pu ,②
+人/亻     Person/People,7,仔,"young person, baby",zai ,③
+人/亻     Person/People,7,仙,celestial being,xian ,①
+人/亻     Person/People,7,体,human body,ti ,③
+人/亻     Person/People,7,从,follow,cong,②
+人/亻     Person/People,7,众,numerous of people,zhong,④
+食/饣     Food,8,饼,cake,bing ,③
+食/饣     Food,8,饮,"drink, beverages",yin ,③
+食/饣     Food,8,饺,dumplings,jiao ,③
+食/饣     Food,8,馆,restaurant,guan ,③
+食/饣     Food,8,馅,"stuffing, filling",xian ,④
+食/饣     Food,8,饵,fish bait,er ,③
+食/饣     Food,8,饲,fodder,si ,④
+食/饣     Food,8,饱,"satisfied, full, be fill,plump",bao,③
+食/饣     Food,8,饥,hunger,ji ,①
+金/钅     Metal,9,铁,iron,tie ,③
+金/钅     Metal,9,钩,hook,gou ,①
+金/钅     Metal,9,针,needle,zhen ,①
+木     Wood,10,林,forest,lin ,②
+木     Wood,10,森,full of trees,sen ,①
+木     Wood,10,朽,rotten wood or tree,xiu,③
+目     Eye,11,眼,eye,yan,③
+目     Eye,11,睛,eyeball,jing ,①
+目     Eye,11,盲,blind,mang ,②
+目     Eye,11,泪,teardrop,lei ,④
+目     Eye,11,瞪,"glower, stare, glare",deng ,④
+女     Female,12,她,"she, her, hers",ta ,①
+女     Female,12,妇,married woman,fu ,④
+女     Female,12,妈,mother,ma ,①
+女     Female,12,奶,grandmother,nai ,③
+冰/冫     Ice,13,冰,ice ,bing ,①
+冰/冫     Ice,13,冷,cold,leng ,③
+冰/冫     Ice,13,冻,freeze,dong ,④
+竹     Bamboo,14,笔,"pen, pencil",bi ,③
+竹     Bamboo,14,筐,basket,kuang,①
+竹     Bamboo,14,竿,pole,gan ,①
+竹     Bamboo,14,笛,flute,di ,②
+犬/犭     Animal,15,猫,cat,mao,①
+犬/犭     Animal,15,狗,dog,gou ,③
+犬/犭     Animal,15,狂,"mad, arrogant, crazy, violent, wild",kuang,②
+犬/犭     Animal,15,猴,monkey,hou,②
+犬/犭     Animal,15,狼,wolf,lang,②
+犬/犭     Animal,15,猎,"hunter, hunt",lie,④
+犬/犭     Animal,15,狐,"fox, lowrie",hu,②
+言/讠     Talk/Chat,16,许,make a promise,xu,③
+言/讠     Talk/Chat,16,语,"language, speech",yu,③
+言/讠     Talk/Chat,16,评,comment,ping,②
+言/讠     Talk/Chat,16,诗,poetry,shi,①
+言/讠     Talk/Chat,16,话,"word, talk ",hua,④
+舟     Boat,17,船,"ship, boat",chuan,②
+舟     Boat,17,舱,cabin,cang,①
+舟     Boat,17,航,navigation,hang,②
+舟     Boat,17,舰,warship,jian ,④
+舟     Boat,17,舵,helm,duo,④
+鱼     Fish,18,鲜,delicious,xian ,①
+鱼     Fish,18,渔,fishing,yu,②
+鱼     Fish,18,鱿,squid,you,②
+鱼     Fish,18,鲤,cyprinoid,li,③
+鱼     Fish,18,鲨,shark,sha ,①
+鱼     Fish,18,鲸,whale,jing ,①
+足     Foot,19,蹄,hoof,ti ,②
+足     Foot,19,跃,"jump, leap",yue ,④
+足     Foot,19,踢,kick,ti,①
+足     Foot,19,跳,"jump, bound, skip",tiao ,④
+米     Rice/Crop,20,糕,cakes,gao,①
+米     Rice/Crop,20,料,grain,liao,④
+米     Rice/Crop,20,粮,"food, crop",liang,②
+日     Sun,21,晶,crystal,jing ,①
+日     Sun,21,阳,"positive, sun, male, sun light",yang ,②
+日     Sun,21,旦,dawn,dan,④
+Number,22,一,one,yi,①
+Number,22,二,two,er ,④
+Number,22,三,three,san ,①
+Number,22,四,four,si ,④
+Number,22,五,five,wu ,③
+Number,22,六,six,liu ,④
+Number,22,七,seven,qi ,①
+Number,22,八,eight,ba ,①
+Number,22,九,night,jiu ,③
+Number,22,十,ten,shi ,②
+Number,22,百,hundred,bai,③
+Number,22,千,thousand,qian,①
+Number,22,万,ten thousand,wan,④
+心/忄     Heart,23,忍,tolerate,ren,③
+心/忄     Heart,23,闷,stuffy,men,④
+心/忄     Heart,23,忆,recollect,yi,④
+心/忄     Heart,23,悲,sad,bei,①
+心/忄     Heart,23,悦,happy,yue ,④
+病/疒    Disease,24,瘦,thin,shou,④
+病/疒    Disease,24,病,disease,bing ,④
+病/疒    Disease,24,疗,"heal, cure",liao,②
+马     Horse,25,驾,"harness, drive",jia ,④
+马     Horse,25,驰,gallop,chi ,②
+马     Horse,25,驴,donkey,lv,②
+马     Horse,25,骑,ride,qi ,②
+马     Horse,25,驮,a load carried by a pack-animal,,②

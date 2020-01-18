@@ -1,0 +1,56 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <title>Chinese is easy to learn!</title>
+    <link rel="stylesheet" type="text/css" href="./style.css">
+</head>
+<body>
+    <div class="main">
+            <h1>A Little Fun about Chinese Characters</h1>
+            <div class="intro">
+                <p>I have a lot of friends who are interested in Chinese characters, but their Chinese learning is not persistent. Because they think Chinese characters are too difficult!<br/><br/>
+                    
+                    But in fact, there are skills to learning Chinese characters. As is known to all, Chinese characters are a kind of pictograph evolved from graphics, although after many years, 
+                    the structure of Chinese characters continue to simplify, but we can still find from the body of Chinese characters as a graphic traces.<br/><br/>
+
+                    So my first advice is to remember Chinese characters as little emojis!
+                </p>
+                <img src="./src/person.png" style="width: 600px;">
+                <p style="color:rgba(102, 102, 102, 0.356)">P1. The evolution of Chinese character "人 - people"  (left to right)<br/>
+                    You can see that the Chinese character stands on two legs. How real it is!</p>
+                <p>The second interesting Chinese character rule is the Radical.<br/>
+                    The radicals also evolved from independent Chinese characters, Chinese characters carrying the same radical will have a similar meaning.<br/><br/>
+
+                    For example:<br/>
+                    <b style="color: rgb(102, 158, 37);">花</b> and <b style="color: rgb(102, 158, 37);">草</b> both have similar top structures: " <b style="color: rgb(102, 158, 37);">艹</b> ".<br/>
+                    " <b style="color: rgb(102, 158, 37);">艹</b> " represents "grass/plant".<br/>
+                    <b style="color: rgb(102, 158, 37);">花</b> => "flower".   <b style="color: rgb(102, 158, 37);">草</b> => "grass".<br/><br/>
+                    There are many Chinese characters in the pool below! <b>But don't panic!</b> <br/>
+                    I have some tips to help you better understand how to use the pool.
+                </p><br/><br/>
+
+                <ul><b style="color: rgb(57, 108, 175); font-size: 13pt;">Guide to Using Chinese Character Pool</b><br/>
+                    <li>Select a Radical in the select box.</li><br/>
+                    <li>You'll notice that there are fewer characters in the pool than before, and they all have the same radicals. Try clicking on the circle with Chinese characters.</li><br/>
+                    <li>Is it zoomed in again? Try clicking on the character again and you will find more information!</li>
+                </ul>
+
+
+            </div>
+
+        <div id="select">
+            Select a Chinese Radical to see what's going on
+            <select name="yourName" id="selectRadical" type="range" step=1> </select>   
+        </div>
+        <div id="chart"></div>
+        <p style="color:rgba(102, 102, 102, 0.356)">Designed by Yue Zhang<br/>
+            Chinese Character Dataset: Collected by Yue Zhang<br/>
+            December, 07, 2019
+        </p>
+    </div>
+
+    <script src="lib/d3.v5.min.js"></script>
+    <script src="./script.js"></script>
+</body>
+</html>
