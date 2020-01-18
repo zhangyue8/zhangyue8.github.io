@@ -1,0 +1,12 @@
+var realtimeURL="https://whiteboard.datawheel.us/api/google-analytics/realtime/111999474";
+    var frequency = 10*1000;
+
+            function fetchData(){
+                d3.json(realtimeURL, function(error,users){
+                console.log("users:",users);
+                d3.select('#users').html(users);
+                });}
+
+            fetchData();
+
+            setInterval(fetchData,frequency);
