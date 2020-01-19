@@ -5,7 +5,8 @@ var realtimeURL="https://whiteboard.datawheel.us/api/google-analytics/realtime/1
                 d3.json(realtimeURL, function(error,users){
                 console.log("users:",users);
                 d3.select('#users').html(users);
-                });}
+                });
+            }
 
             fetchData();
 
