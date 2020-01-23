@@ -82,7 +82,7 @@ function initialData(settings) {
             .data(data)
             .enter()
             .append("circle")
-                .attr("cx", 400)
+                .attr("cx", 500)
                 .attr("cy", 300)
                 .attr("r", (users-50)*5)
                 .attr("fill", "white");
@@ -101,7 +101,7 @@ function updateData(settings) {
         var newBall = svg.selectAll("circle")   
             .data(data);
         newBall.enter().append("circle")
-            .attr("cx", 400)
+            .attr("cx", 500)
             .attr("cy", 300)
             .attr("r", (users-50)*5)
             .attr("fill", "white")
