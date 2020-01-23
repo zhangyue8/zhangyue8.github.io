@@ -87,7 +87,7 @@ function initialData(settings) {
             .enter()
             .append("circle")
                 .attr("cx", 500)
-                .attr("cy", 400)
+                .attr("cy", 350)
                 .attr("r", (users-50)*5)
                 .attr("fill", "white");
         });
@@ -105,7 +105,7 @@ function updateData(settings) {
             .data(data);
         newBall.enter().append("circle")
             .attr("cx", 500)
-            .attr("cy", 400)
+            .attr("cy", 350)
             .attr("r", (users-50)*5)
             .attr("fill", "white")
         .merge(newBall)
