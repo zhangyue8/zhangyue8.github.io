@@ -64,7 +64,10 @@ var svg = d3.select("#chart")
 
 
 var settings = {
-    margin:margin, width:width, height:height, svg:svg
+    margin:margin, 
+    width:width, 
+    height:height, 
+    svg:svg
     }
 
 
@@ -94,9 +97,8 @@ function updateData(settings) {
         console.log(users);
         d3.select('#users').html(users);
 
-
         var data=[]
-        data.push(users);
+            data.push(users);
 
         var newBall = svg.selectAll("circle")   
             .data(data);
@@ -110,8 +112,8 @@ function updateData(settings) {
             .attr("r", (users-50)*5)
             .attr("fill", "white");
         newBall.exit().remove();
-        });
-    }
+    });
+}
 
 
 
