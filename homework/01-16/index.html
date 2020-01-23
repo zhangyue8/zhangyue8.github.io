@@ -22,6 +22,7 @@
         #text {
             font-size: 30pt;
             color:khaki;
+            text-align: center;
 
         }
 
@@ -29,6 +30,12 @@
             width: 100%;
             height: 900px;
             }
+
+        span{
+            color:rgb(208, 31, 31);
+            font-size: 100pt;
+
+        }
         
         </style>
     </head>
@@ -43,11 +50,11 @@
         <script>
 
 var realTimeURL = "https://whiteboard.datawheel.us/api/google-analytics/realtime/random";
-var frequency = 1 * 1000; 
+var frequency = 1000; 
 
 
-var width = 1000;
-var height = 1000;
+var width = 1100;
+var height = 1100;
 var margin = {top: 150, left: 150, right: 150, bottom: 150};
 
 var svg = d3.select("#chart")
@@ -75,8 +82,8 @@ function initialData(settings) {
             .data(data)
             .enter()
             .append("circle")
-                .attr("x", margin.left)
-                .attr("y", margin.top)
+                .attr("cx", 400)
+                .attr("cy", 400)
                 .attr("r", (users-50)*5)
                 .attr("fill", "white");
         });
@@ -94,18 +101,15 @@ function updateData(settings) {
         var newBall = svg.selectAll("circle")   
             .data(data);
         newBall.enter().append("circle")
-            .attr("x", margin.left)
-            .attr("y", margin.top)
+            .attr("cx", 400)
+            .attr("cy", 400)
             .attr("r", (users-50)*5)
             .attr("fill", "white")
         .merge(newBall)
             .transition()
             .attr("r", (users-50)*5)
             .attr("fill", "white");
-        newBall.exit()
-            .transition()
-            .attr("width", 0)
-            .remove();
+        newBall.exit().remove();
         });
     }
 
