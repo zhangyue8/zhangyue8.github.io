@@ -43,9 +43,6 @@
 
                 var barWidth = width / dataMax;
 
-                var barHeight = d3.scaleLinear()
-                    .domain([0, d3.max(data)])
-                    .range([0, height]);
 
 
                 var x = d3.scaleLinear()
@@ -63,6 +60,12 @@
                     data.unshift(users);
                     if (data.length > dataMax) data.pop();
                     console.log(data);
+
+
+                    var barHeight = d3.scaleLinear()
+                    .domain([0, d3.max(data)])
+                    .range([0, height]);
+
 
                     var bars = svg.selectAll(".bar")
                         .data(data);
