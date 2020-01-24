@@ -30,7 +30,7 @@
                 var frequency = 1 * 1000; 
 
 
-                var dataMax = 5;
+                var dataMax = 20;
                 var data = [];
 
                 var width=window.innerWidth;
@@ -98,7 +98,7 @@
 
                     bars.merge(enter)
                     .transition().duration(frequency / 2)
-                    .attr("x", function(d, i) {
+                    .attr("height", function(d) {
                         return x(i + 1);
                     })
                     .attr("height", barHeight)
