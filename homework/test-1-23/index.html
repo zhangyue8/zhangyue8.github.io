@@ -57,9 +57,23 @@
 
                 d3.json(realtimeURL, function(error, users) {
 
+
+
+                    var dataObject={
+                        users: users,
+                        timestamp: new Date() //括号里可以改时间戳
+                    };
+
+
+
+
                     data.unshift(users);
                     if (data.length > dataMax) data.pop();
                     console.log(data);
+
+                    var maximum=d3.max(data, function(d){
+                        return d.users;
+                    });
 
 
                     var barHeight = d3.scaleLinear()
@@ -68,9 +82,11 @@
 
 
                     var bars = svg.selectAll(".bar")
-                        .data(data);
+                        .data(data, function(d){
+                            return d.timestamp;
+                        });
 
-                    bars.enter().append("rect")
+                    var enter=bars.enter().append("rect")
                     .attr("class", "bar")
                     .attr("width", barWidth)
                     .attr("height", 0)
