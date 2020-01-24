@@ -73,17 +73,15 @@
                     bars.enter().append("rect")
                     .attr("class", "bar")
                     .attr("width", barWidth)
-                    .attr("height", barHeight)
-                    .attr("y", function(d){
-                        var h=barHeight(d.users);
-                        return height - h;
-                    })
+                    .attr("height", 0)
+                    .attr("y",height)
                     .attr("x", function(d, i) {
                         return x(i + 1);
                     });
 
 
-                    bars
+                    bar.merge(enter)
+                    .transition().duration(frequency / 2)
                     .attr("x", function(d, i) {
                         return x(i + 1);
                     })
@@ -92,6 +90,14 @@
                         var h = barHeight(d.users);
                         return height - h;
                     });
+
+
+
+
+
+
+
+
 
 
 
