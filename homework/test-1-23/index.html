@@ -43,6 +43,10 @@
 
                 var barWidth = width / dataMax;
 
+                var barHeight = d3.scaleLinear()
+                    .domain([0, d3.max(data)])
+                    .range([0, height]);
+
 
                 var x = d3.scaleLinear()
                 .domain([dataMax, 1])
@@ -66,9 +70,16 @@
                     bars.enter().append("rect")
                     .attr("class", "bar")
                     .attr("width", barWidth)
+                    .attr("height", barHeight)
                     .attr("x", function(d, i) {
                         return x(i + 1);
                     });
+
+
+
+
+
+
 
                     bars.exit().remove();
 
