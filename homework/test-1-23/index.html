@@ -67,7 +67,7 @@
 
 
 
-                    data.unshift(users);
+                    data.unshift(dataObject);
                     if (data.length > dataMax) data.pop();
                     console.log(data);
 
@@ -105,8 +105,8 @@
                         var h = barHeight(d.users);
                         return height - h;
                     })
-                    .attr("x", function(d, i) {
-                        return x(i + 1)
+                    .attr("x", function(d,i) {
+                        return x(i + 1);
                     });
 
 
@@ -117,7 +117,7 @@
                     .transition().duration(frequency / 2)
                     .attr("height", 0)
                     .attr("y", height)
-                    .remove()
+                    .remove();
 
                 });
                 }
