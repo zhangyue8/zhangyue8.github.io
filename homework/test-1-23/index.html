@@ -105,6 +105,9 @@
                     .attr("y", function(d, i) {
                         var h = barHeight(d.users);
                         return height - h;
+                    })
+                    .attr("x", function(d, i) {
+                        return x(i + 1);
                     });
 
 
