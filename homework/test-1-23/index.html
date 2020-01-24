@@ -39,6 +39,16 @@
                     .attr("width",width)
                     .attr("height",height);
 
+
+                var x = d3.scaleLinear()
+                .domain([dataMax, 1])
+                .range([0, width]);
+
+                var barWidth = width / dataMax;
+
+
+
+
                 function fetchData() {
 
                 d3.json(realtimeURL, function(error, users) {
@@ -51,7 +61,11 @@
                         .data(data);
 
                     bars.enter().append("rect")
-                    .attr("class", "bar");
+                    .attr("class", "bar")
+                    .attr("width", barWidth)
+                    .attr("x", function(d, i) {
+                        return x(i + 1);
+                    });
 
                     bars.exit().remove();
 
