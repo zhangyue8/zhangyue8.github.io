@@ -99,10 +99,9 @@
                     bars.merge(enter)
                     .transition().duration(frequency / 2)
                     .attr("height", function(d) {
-                        return x(i + 1);
+                        return barHeight(d.users);
                     })
-                    .attr("height", barHeight)
-                    .attr("y", function(d, i) {
+                    .attr("y", function(d) {
                         var h = barHeight(d.users);
                         return height - h;
                     })
@@ -114,13 +113,11 @@
 
 
 
-
-
-
-
-
-
-                    bars.exit().remove();
+                    bars.exit()
+                    .transition().duration(frequency / 2)
+                    .attr("height", 0)
+                    .attr("y", height)
+                    .remove()
 
                 });
                 }
