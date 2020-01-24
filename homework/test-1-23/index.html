@@ -47,6 +47,14 @@
                     if (data.length > dataMax) data.pop();
                     console.log(data);
 
+                    var bars = svg.selectAll(".bar")
+                        .data(data);
+
+                    bars.enter().append("rect")
+                    .attr("class", "bar");
+
+                    bars.exit().remove();
+
                 });
                 }
             
