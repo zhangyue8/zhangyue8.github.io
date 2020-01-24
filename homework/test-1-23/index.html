@@ -40,11 +40,14 @@
                     .attr("height",height);
 
 
+
+                var barWidth = width / dataMax;
+
+
                 var x = d3.scaleLinear()
                 .domain([dataMax, 1])
                 .range([0, width]);
 
-                var barWidth = width / dataMax;
 
 
 
