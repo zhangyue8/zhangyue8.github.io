@@ -7,7 +7,7 @@
         <style>
             body{
                 margin:0;
-                background-color: khaki;
+                background-color: rgb(190, 233, 209);
             }
 
         
@@ -31,7 +31,7 @@
                 var frequency = 1 * 1000; 
 
 
-                var dataMax = 20;
+                var dataMax = 10;
                 var data = [];
 
 
@@ -39,7 +39,7 @@
                 // window.innerHeight
 
 
-                var width=300;
+                var width=600;
                 var height=300;
                 var svg= d3.select("#chart")
                     .attr("width",width)
@@ -96,7 +96,7 @@
 
                     var enter = bars.enter().append("rect")
                     .attr("class", "bar")
-                    .attr("width", barWidth)
+                    .attr("width", 10)
                     .attr("height", 0)
                     .attr("fill","red")
                     .attr("y",height)
