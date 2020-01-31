@@ -111,7 +111,7 @@
                             return d.timestamp;
                         });
 
-                    var labels = svg.selectAll(".label")
+                    var labels = svg.selectAll(".label") //
                         .data(data, function(d) {
                         return d.timestamp;
                         });
@@ -146,7 +146,7 @@
 
 
 
-                    var labelEnter = labels.enter().append("text")
+                    var labelEnter = labels.enter().append("text")//
                     .attr("class", "label")
                     .text(function(d) {
                         return d.users;
@@ -156,7 +156,7 @@
                     })
                     .attr("y", height)
                 
-                labels.merge(labelEnter)
+                labels.merge(labelEnter)    //////////////
                     .transition()
                     .duration(frequency/2)
                     .text(function(d) {
@@ -172,7 +172,7 @@
                     .attr("fill", "white");
 
 
-                    labels.exit()
+                    labels.exit()   ///////////
                     .transition().duration(frequency / 2)
                     .attr("y", height)
                     .remove();
