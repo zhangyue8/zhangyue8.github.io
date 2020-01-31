@@ -20,6 +20,12 @@
                 color: #F75C2F;
             }
 
+            text{
+                text-anchor:middle;
+                font-weight: bold;
+
+            }
+
 
         
         
@@ -105,9 +111,14 @@
                             return d.timestamp;
                         });
 
+                    var labels = svg.selectAll(".label")
+                        .data(data, function(d) {
+                        return d.timestamp;
+                        });
+
                     var enter = bars.enter().append("rect")
                     .attr("class", "bar")
-                    .attr("width", 20)
+                    .attr("width", 50)
                     .attr("height", 0)
                     .attr("fill","#F75C2F")
                     .attr("y",height)
@@ -131,6 +142,40 @@
 
 
 
+
+
+
+
+                    var labelEnter = labels.enter().append("text")
+                    .attr("class", "label")
+                    .text(function(d) {
+                        return d.users;
+                    })
+                    .attr("x", function(d, i) {
+                        return (x(i + 1))+(barWidth/2);
+                    })
+                    .attr("y", height)
+                
+                labels.merge(labelEnter)
+                    .transition()
+                    .duration(frequency/2)
+                    .text(function(d) {
+                        return d.users;
+                    })
+                    .attr("y", function(d, i) {
+                        var h = barHeight(d.users);
+                        return height - (h-30);
+                    })
+                    .attr("x", function(d, i) {
+                        return (x(i + 1))+(barWidth/2);
+                    })
+                    .attr("fill", "white");
+
+
+                    labels.exit()
+                    .transition().duration(frequency / 2)
+                    .attr("y", height)
+                    .remove();
 
 
                     bars.exit()
