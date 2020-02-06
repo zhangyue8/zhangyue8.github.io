@@ -34,6 +34,8 @@
     <body>
         <svg id="chart"></svg>
         <div><h1>We currently have <span id="users"></span> users in our web!</h1></div>
+        <div><h2 style="font-size: 80pt;">It worked this morning, but now! It looks weird！</h2></div>
+        <div><img src="resource/meme.jpg"></div>
 
 
 
@@ -50,20 +52,19 @@
 
                 var dataMax = 10;
                 var data = [];
+                var fontSize = 20;
 
 
 
 
-                var width=600;     //window.innerWidth
-                var height=400;    //window.innerHeight
+                var width = window.innerWidth;     //window.innerWidth
+                var height = 400;    //window.innerHeight
                 var svg= d3.select("#chart")
                     .attr("width",width)
                     .attr("height",height);
 
 
                 var barWidth = width / dataMax;
-
-
 
                 var x = d3.scaleLinear()
                 .domain([dataMax, 1])
@@ -111,14 +112,10 @@
                             return d.timestamp;
                         });
 
-                    var labels = svg.selectAll(".label") //
-                        .data(data, function(d) {
-                        return d.timestamp;
-                        });
 
                     var enter = bars.enter().append("rect")
                     .attr("class", "bar")
-                    .attr("width", 50)
+                    .attr("width", barWidth-2) // 控制 bar 的 width 以及间距
                     .attr("height", 0)
                     .attr("fill","#F75C2F")
                     .attr("y",height)
@@ -133,21 +130,24 @@
                         return barHeight(d.users);
                     })
                     .attr("y", function(d) {
-                        var h = barHeight(d.users);
-                        return height - h;
+                        return height - barHeight(d.users);
                     })
                     .attr("x", function(d,i) {
                         return x(i + 1);
                     });
 
 
-
+                    var labels=svg.selectAll(".label")
+                        .data(data,function(d){
+                            return d.timestamp;
+                        });
 
 
 
 
                     var labelEnter = labels.enter().append("text")//
                     .attr("class", "label")
+                    .attr("font-size", fontSize)
                     .text(function(d) {
                         return d.users;
                     })
@@ -159,9 +159,9 @@
                 labels.merge(labelEnter)    //////////////
                     .transition()
                     .duration(frequency/2)
-                    .text(function(d) {
-                        return d.users;
-                    })
+                    // .text(function(d) {
+                    //     return d.users;
+                    // })
                     .attr("y", function(d, i) {
                         var h = barHeight(d.users);
                         return height - (h-30);
@@ -169,7 +169,46 @@
                     .attr("x", function(d, i) {
                         return (x(i + 1))+(barWidth/2);
                     })
-                    .attr("fill", "white");
+                    .attr("fill", "white")
+
+                    .each(function(d,i){
+                var textElement = d3.select(this);
+                    textElement.text("");
+
+                var hahaha = "hahahahaha " + d.users +" people here!";
+
+                var words = hahaha.split(" "); //it needs a space between the ""
+                var tspan = textElement.append("tspan");
+                var line=0;
+
+                words.forEach(function(word){
+                      var sentence = tspan.text();
+                      tspan.text(sentence + " " + word); //it needs a space between the ""
+                      var domElement = tspan.node();
+                      var tspanWidth = domElement.getBoundingClientRect().width;
+                      console.log(tspanWidth);
+
+                      if(tspanWidth > barWidth) {
+                        line++;
+                        tspan.text(sentence);
+                        tspan = textElement.append("tspan")
+                          .attr("baseline-shift", "-100%")
+                          .attr("y", function() {
+                        return (height-barHeight(d.users)) + (fontSize * line);
+                      })
+                          .attr("x", function() {
+                        return x(i + 1);
+                        })
+                          .text(word);
+                      }
+
+                    });
+
+              });
+
+
+
+
 
 
                     labels.exit()   ///////////
