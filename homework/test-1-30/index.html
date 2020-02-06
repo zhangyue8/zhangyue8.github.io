@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8"/>
+        <title>Let's load some data!</title>
+        <script src="https://d3js.org/d3.v4.min.js"></script>
+        <style>
+            body{
+                margin:30;
+                background-color: rgb(190, 233, 209);
+            }
+
+            h1{
+                font-size: 20px;
+                color:#F75C2F;
+            }
+
+            #users{
+                font-size: 30pt;
+                color: #F75C2F;
+            }
+
+            text{
+                text-anchor:middle;
+                font-weight: bold;
+
+            }
+
+
+        
+        
+        </style>
+    </head>
+    <body>
+        <svg id="chart"></svg>
+        <div><h1>We currently have <span id="users"></span> users in our web!</h1></div>
+
+
+
+
+
+
+
+
+
+            <script>
+                var realtimeURL = "https://whiteboard.datawheel.us/api/google-analytics/realtime/random";
+                var frequency = 1 * 1000; 
+
+
+                var dataMax = 10;
+                var data = [];
+
+
+
+
+                var width=600;     //window.innerWidth
+                var height=400;    //window.innerHeight
+                var svg= d3.select("#chart")
+                    .attr("width",width)
+                    .attr("height",height);
+
+
+                var barWidth = width / dataMax;
+
+
+
+                var x = d3.scaleLinear()
+                .domain([dataMax, 1])
+                .range([0, width-barWidth]);
+
+
+
+
+
+                function fetchData() {
+
+                d3.json(realtimeURL, function(error, users) {
+                    console.log("users:",users);
+                    d3.select('#users').html(users);
+
+
+
+                    var dataObject={
+                        users: users,
+                        timestamp: new Date() //括号里可以改时间戳
+                    };
+
+
+
+
+                    data.unshift(dataObject);
+                    if (data.length > dataMax){
+                        data.pop();
+                    } 
+                    
+                    console.log(data);
+
+                    var maximum=d3.max(data, function(d){
+                        return d.users;
+                    });
+
+
+                    var barHeight = d3.scaleLinear()
+                    .domain([0, maximum])
+                    .range([0, height]);
+
+
+                    var bars = svg.selectAll(".bar")
+                        .data(data, function(d){
+                            return d.timestamp;
+                        });
+
+                    var labels = svg.selectAll(".label") //
+                        .data(data, function(d) {
+                        return d.timestamp;
+                        });
+
+                    var enter = bars.enter().append("rect")
+                    .attr("class", "bar")
+                    .attr("width", 50)
+                    .attr("height", 0)
+                    .attr("fill","#F75C2F")
+                    .attr("y",height)
+                    .attr("x", function(d, i) {
+                        return x(i + 1);
+                    });
+
+
+                    bars.merge(enter)
+                    .transition().duration(frequency / 2)
+                    .attr("height", function(d) {
+                        return barHeight(d.users);
+                    })
+                    .attr("y", function(d) {
+                        var h = barHeight(d.users);
+                        return height - h;
+                    })
+                    .attr("x", function(d,i) {
+                        return x(i + 1);
+                    });
+
+
+
+
+
+
+
+                    var labelEnter = labels.enter().append("text")//
+                    .attr("class", "label")
+                    .text(function(d) {
+                        return d.users;
+                    })
+                    .attr("x", function(d, i) {
+                        return (x(i + 1))+(barWidth/2);
+                    })
+                    .attr("y", height)
+                
+                labels.merge(labelEnter)    //////////////
+                    .transition()
+                    .duration(frequency/2)
+                    .text(function(d) {
+                        return d.users;
+                    })
+                    .attr("y", function(d, i) {
+                        var h = barHeight(d.users);
+                        return height - (h-30);
+                    })
+                    .attr("x", function(d, i) {
+                        return (x(i + 1))+(barWidth/2);
+                    })
+                    .attr("fill", "white");
+
+
+                    labels.exit()   ///////////
+                    .transition().duration(frequency / 2)
+                    .attr("y", height)
+                    .remove();
+
+
+                    bars.exit()
+                    .transition().duration(frequency / 2)
+                    .attr("height", 0)
+                    .attr("y", height)
+                    .remove();
+
+                });
+                }
+            
+
+
+            
+            
+                fetchData();
+                setInterval(fetchData, frequency);
+            </script>        
+        
+    </body>
+</html>
