@@ -145,7 +145,7 @@
 
 
 
-                    var labelEnter = labels.enter().append("text")//
+                var labelEnter = labels.enter().append("text")//
                     .attr("class", "label")
                     .attr("font-size", fontSize)
                     .text(function(d) {
@@ -158,7 +158,7 @@
                 
                 labels.merge(labelEnter)    //////////////
                     .transition()
-                    .duration(frequency)
+                    .duration(frequency / 2)
                     // .text(function(d) {
                     //     return d.users;
                     // })
@@ -177,16 +177,23 @@
 
                 var hahaha = "hahahahaha " + d.users + " people here!";
 
-                var words = hahaha.split(" "); //it needs a space between the ""
-                var tspan = textElement.append("tspan");
+
+
                 var line=0;
+                var words = hahaha.split(" "); //it needs a space between the ""
+                var tspan = textElement.append("tspan")
+                    .attr("y", function() {
+                        return (height-barHeight(d.users)) + (fontSize * line);
+                    })
+                    .attr("x", function() {
+                        return x(i);
+                    });
 
                 words.forEach(function(word){
                       var sentence = tspan.text();
                       tspan.text(sentence + " " + word); //it needs a space between the ""
                       var domElement = tspan.node();
                       var tspanWidth = domElement.getBoundingClientRect().width;
-                      console.log(tspanWidth);
 
                       if(tspanWidth > barWidth) {
                         line++;
@@ -197,12 +204,18 @@
                         return (height-barHeight(d.users)) + (fontSize * line);
                       })
                           .attr("x", function() {
-                        return x(i + 1);
+                        return x(i);
                         })
                           .text(word);
                       }
 
                     });
+
+                textElement.selectAll("tspan") ////
+                        .transition().duration(frequency / 2)
+                            .attr("x", function() {
+                                return x(i + 1);
+                            });
 
               });
 
