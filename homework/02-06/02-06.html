@@ -5,6 +5,9 @@
     <title>Coin Desk!!!</title>
     <script src="https://d3js.org/d3.v4.min.js"></script>
     <style>
+      body{
+        background-color: #F75C2F;
+      }
     
     
     </style>
@@ -130,7 +133,7 @@
         .attr("y",function(d) { return yScale(d.price); })
         .attr("width",xScale.bandwidth())
         .attr("height",function(d) { return height-margin.bottom-yScale(d.price);})
-        .attr("fill","#cc99ff");
+        .attr("fill","#FFB11B");
 
     var tooltip = d3.select("#chart")
       .append("div")
@@ -138,15 +141,12 @@
 
     bar.on("mouseover", function(d) {
 
+      tooltip.style("visibility", "visible")
+        .text(d.price)
 
-    tooltip.style("visibility", "visible")
-    .text(d.price)
-
-    d3.select(this)
-    .attr("stroke","red")
-    .attr("stroke-width", 2);
-
-
+      d3.select(this)
+        .attr("stroke","#86C166")
+        .attr("stroke-width", 5);
 
     }).on("mouseout", function(d){
 
