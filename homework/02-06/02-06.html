@@ -103,6 +103,23 @@
       .call(d3.axisLeft().scale(yScale));
 
 
+    var xAxisLabel = svg.append("text")
+      .attr("class","axisLabel")
+      .attr("x", width/2)
+      .attr("y", height-margin.bottom/2)
+      .attr("text-anchor","middle")
+      .text("Date in 2020");
+
+    var yAxisLabel = svg.append("text")
+      .attr("class","axisLabel")
+      .attr("transform","rotate(-90)")
+      .attr("x",-height/2)
+      .attr("y",margin.left/2)
+      .attr("text-anchor","middle")
+      .text("United States Dollar");
+
+
+
     var bar=svg.selectAll("rect")
       .data(data_1)
       .enter()
