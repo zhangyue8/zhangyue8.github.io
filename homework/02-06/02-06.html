@@ -18,6 +18,8 @@
         From 2020-1-12 to 2020-2-11
 
       </h2>
+      <P>API Source: <a href=https://api.coindesk.com/v1/bpi/historical/close.json">"https://api.coindesk.com/v1/bpi/historical/close.json"</a>
+      </P>
   </div>
     <div id="chart"></div>
 
@@ -43,7 +45,7 @@
 
     var width = window.innerWidth;
     var height = 500;
-    var margin={top:30,left:50,right:30,bottom:50};
+    var margin={top:30,left:100,right:30,bottom:50};
 
     var svg=d3.select("#chart")
               .append("svg")
@@ -106,7 +108,7 @@
     var xAxisLabel = svg.append("text")
       .attr("class","axisLabel")
       .attr("x", width/2)
-      .attr("y", height-margin.bottom/2)
+      .attr("y", height-margin.bottom/2+20)
       .attr("text-anchor","middle")
       .text("Date in 2020");
 
@@ -114,7 +116,7 @@
       .attr("class","axisLabel")
       .attr("transform","rotate(-90)")
       .attr("x",-height/2)
-      .attr("y",margin.left/2)
+      .attr("y",margin.left/2-10)
       .attr("text-anchor","middle")
       .text("United States Dollar");
 
