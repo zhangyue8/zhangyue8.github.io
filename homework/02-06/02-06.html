@@ -2,13 +2,166 @@
 <html>
   <head>
     <meta charset="utf-8"/>
-    <title></title>
-            <link rel="stylesheet" type="text/css" href="________.css">
-            <script src="https://d3js.org/d3.v5.min.js"></script>
+    <title>Coin Desk!!!</title>
+    <script src="https://d3js.org/d3.v4.min.js"></script>
+    <style>
+    
+    
+    </style>
   </head>
   <body>
+    <div>
+      <h1>
+        The Bitcoin Price Index
+      </h1>
+      <h2>
+        From 2020-1-12 to 2020-2-11
+
+      </h2>
+  </div>
+    <div id="chart"></div>
 
 
-  <script  src="__.js"></script>
+
+
+
+  <script>
+    // "https://api.coindesk.com/v1/bpi/historical/close.json"
+
+
+
+
+    var dataURL = "https://api.coindesk.com/v1/bpi/historical/close.json";
+    d3.json(dataURL, function(error,data){
+      console.log(data);
+      
+    });
+
+
+
+
+
+    var width = window.innerWidth;
+    var height = 500;
+    var margin={top:30,left:50,right:30,bottom:50};
+
+    var svg=d3.select("#chart")
+              .append("svg")
+              .attr("width",width)
+              .attr("height",height);
+
+    var data_1 = [
+      {time: "1-12", price: 8178.8833},
+      {time: "1-13", price: 8105.4783},
+      {time: "1-14", price: 8807.4267},
+      {time: "1-15", price: 8808.4867},
+      {time: "1-16", price: 8716.9133},
+      {time: "1-17", price: 8890.25},
+      {time: "1-18", price: 8901.17},
+      {time: "1-19", price: 8698.5717},
+      {time: "1-20", price: 8631.2883},
+      {time: "1-21", price: 8727.6033},
+      {time: "1-22", price: 8661.01},
+      {time: "1-23", price: 8392.145},
+      {time: "1-24", price: 8436.49},
+      {time: "1-25", price: 8337.1017},
+      {time: "1-26", price: 8602.7417},
+      {time: "1-27", price: 8901.5067},
+      {time: "1-28", price: 9393.2733},
+      {time: "1-29", price: 9290.46},
+      {time: "1-30", price: 9508.725},
+      {time: "1-31", price: 9346.1333},
+      {time: "2-01", price: 9388.6617},
+      {time: "2-02", price: 9333.08},
+      {time: "2-03", price: 9291.6433},
+      {time: "2-04", price: 9175.3367},
+      {time: "2-05", price: 9613.4033},
+      {time: "2-06", price: 9750.5467},
+      {time: "2-07", price: 9808.5967},
+      {time: "2-08", price: 9897.6583},
+      {time: "2-09", price: 10161.2833},
+      {time: "2-10", price: 9852.7183},
+      {time: "2-11", price: 10266.1}
+    ];
+    console.log(data_1);
+
+    var xScale=d3.scaleBand()
+      .domain(["1-12","1-13","1-14","1-15","1-16","1-17","1-18","1-19","1-20","1-21","1-22","1-23","1-24","1-25","1-26","1-27","1-28","1-29","1-30","1-31","2-01","2-02","2-03","2-04","2-05","2-06","2-07","2-08","2-09","2-10","2-11"])
+      .rangeRound([margin.left, width-margin.right])
+      .padding(0.5);
+
+    var yScale=d3.scaleLinear()
+      .domain([8000,11000])
+      .range([height-margin.bottom, margin.top]);
+
+    var xAxis=svg.append("g")
+      .attr("transform",`translate(0, ${height-margin.bottom})`)
+      .call(d3.axisBottom().scale(xScale));
+
+    var yAxis = svg.append("g")
+      .attr("transform",`translate(${margin.left},0)`)
+      .call(d3.axisLeft().scale(yScale));
+
+
+    var bar=svg.selectAll("rect")
+      .data(data_1)
+      .enter()
+      .append("rect")
+        .attr("x",function(d) { return xScale(d.time); })
+        .attr("y",function(d) { return yScale(d.price); })
+        .attr("width",xScale.bandwidth())
+        .attr("height",function(d) { return height-margin.bottom-yScale(d.price);})
+        .attr("fill","#cc99ff");
+
+    var tooltip = d3.select("#chart")
+      .append("div")
+      .attr("class","tooltip");
+
+    bar.on("mouseover", function(d) {
+
+
+    tooltip.style("visibility", "visible")
+    .text(d.price)
+
+    d3.select(this)
+    .attr("stroke","red")
+    .attr("stroke-width", 2);
+
+
+
+    }).on("mouseout", function(d){
+
+      tooltip.style("visibility","hidden");
+
+      d3.select(this)
+      .attr("stroke","none")
+      .attr("stroke-width", 1);
+
+
+
+    })
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  
+  
+  
+  
+  
+  
+  </script>
   </body>
 </html>
