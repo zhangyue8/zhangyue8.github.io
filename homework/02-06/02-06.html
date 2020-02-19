@@ -21,7 +21,7 @@
         From 2020-1-12 to 2020-2-11
 
       </h2>
-      <P>API Source: <a href=https://api.coindesk.com/v1/bpi/historical/close.json">"https://api.coindesk.com/v1/bpi/historical/close.json"</a>
+      <P>API Source: <a href=https://api.coindesk.com/v1/bpi/historical/close.json>"https://api.coindesk.com/v1/bpi/historical/close.json"</a>
       </P>
   </div>
     <div id="chart"></div>
@@ -39,6 +39,18 @@
     var dataURL = "https://api.coindesk.com/v1/bpi/historical/close.json";
     d3.json(dataURL, function(error,data){
       console.log(data);
+
+
+      for(var i in dataURL){
+    var key = i;
+    var val = dataURL[i];
+    for(var j in val){
+        var sub_key = j;
+        var sub_val = val[j];
+        console.log(sub_key);
+    }
+}
+
       
     });
 
