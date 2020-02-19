@@ -38,18 +38,20 @@
 
     var dataURL = "https://api.coindesk.com/v1/bpi/historical/close.json";
     d3.json(dataURL, function(error,data){
-      console.log(data);
+      console.log(data.bpi);
+
+    // var bpi=[]
 
 
-      for(var i in dataURL){
-    var key = i;
-    var val = dataURL[i];
-    for(var j in val){
-        var sub_key = j;
-        var sub_val = val[j];
-        console.log(sub_key);
-    }
-}
+    //   for(var i in bpi){
+    // var key = i;
+    // var val = bpi[i];
+    // for(var j in val){
+    //     var sub_key = j;
+    //     var sub_val = val[j];
+    //     console.log(sub_key);
+    // }
+// }
 
       
     });
