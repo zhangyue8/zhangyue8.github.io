@@ -121,7 +121,8 @@
     bar.on("mouseover", function(d) {
 
       tooltip.style("visibility", "visible")
-        .text(d.price + " $" )
+        .text(d.price + " $" + " " + d.time)
+        
 
 
       d3.select(this)
