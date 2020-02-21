@@ -14,20 +14,55 @@
       #x .tick text {
         fill: red;
       }
+
+
+
+      #scaleRect {
+    stroke: black;
+  }
+
+
     </style>
   </head>
   <body>
+
+
     <svg id="chart">
+      <defs>
+        <linearGradient id="colorGradient">
+          <!-- <stop offset="0%" stop-color="red" />
+          <stop offset="15%" stop-color="orange" />
+          <stop offset="30%" stop-color="yellow" />
+          <stop offset="45%" stop-color="green" />
+          <stop offset="60%" stop-color="steelblue" />
+          <stop offset="75%" stop-color="blue" />
+          <stop offset="100%" stop-color="purple" />
+          <stop offset="100%" stop-color="green" /> -->
+
+        </linearGradient>
+      </defs>
       <g id="shapes"></g>
       <g id="x"></g>
       <g id="y"></g>
+      <g id="scale">
+        <rect id="scaleRect" fill="url(#colorGradient)" />
+        <g id="scaleAxis"></g>
+      </g>
+
+      <g id="legend"></g> <!-- 图示注解 -->
+
     </svg>
+
+
+
+
+
 
     <script>
       var realtimeURL = "https://whiteboard.datawheel.us/api/google-analytics/realtime/random";
       var frequency = 1 * 1000; // 1 seconds
 
-      var dataMax = 5;
+      var dataMax = 30;
       var data = [];
 
       var width = window.innerWidth;
@@ -35,8 +70,8 @@
 
       var margin = {
         top: 20,
-        right: 20,
-        bottom: 50,
+        right: 150,
+        bottom: 100,
         left: 50
       };
 
@@ -46,6 +81,33 @@
       var svg = d3.select("#chart")
         .attr("width", width)
         .attr("height", height);
+
+
+
+
+      var scaleWidth = 800; //
+      var scaleHeight = 30;
+      var scaleX = margin.left + chartWidth / 2 - (scaleWidth / 2);
+      var scaleY = margin.top + chartHeight + 40;
+
+      var scale = svg.select("#scale")
+        .attr("transform", "translate(" + scaleX + ", " + scaleY + ")");
+
+      scale.select("#scaleRect")
+        .attr("width", scaleWidth)
+        .attr("height", scaleHeight);
+
+
+      var legendX = margin.left + chartWidth + 20;//控制图示的位置
+      var legendY = margin.top;
+      var legendSize = 20;
+
+      var legend = svg.select("#legend")
+        .attr("transform", "translate(" + legendX + ", " + legendY + ")");
+
+
+
+
 
       var domainValues = d3.range(1, dataMax + 1);
 
@@ -69,9 +131,129 @@
           data.unshift(dataObject);
           if (data.length > dataMax) data.pop();
 
+          if (data.length === dataMax) clearInterval(myInterval); // 达到最大bar 数量时停下，限制bar 的数量。
+
+          var legendData = data.map(function(d) {   //
+            return d.users;
+          });
+          console.log(legendData);
+
+          legendData = legendData.filter(function(d, i) {   /////////// 归类相同的数据。
+              return legendData.indexOf(d) === i;
+            })
+              .sort(function(a, b) {
+                return a - b;
+              });
+
+
+
+
+
+
+
+
           var maximum = d3.max(data, function(d) {
             return d.users;
           });
+
+
+
+          var barColor = d3.scaleSequential(d3.interpolateViridis) //彩虹 barcolor
+            .domain([0, maximum]);////////domain
+
+
+
+
+
+          var legendRects = legend.selectAll("rect")//图示出现
+            .data(legendData);
+
+          var legendRectsEnter = legendRects.enter().append("rect");
+
+          legendRects.merge(legendRectsEnter)
+            .attr("x", 0)
+            .attr("y", function(d, i) {
+              return i * legendSize + i * 10;
+            })
+            .attr("fill", barColor)
+            .attr("width", legendSize)
+            .attr("height", legendSize);
+
+
+
+
+
+
+
+
+          var legendTexts = legend.selectAll("text")// 图示旁边的文字注解
+          .data(legendData);
+
+          var legendTextsEnter = legendTexts.enter().append("text")
+            .attr("baseline-shift", "-100%");
+
+          legendTexts.merge(legendTextsEnter)
+            .attr("x", legendSize + 5)
+            .attr("y", function(d, i) {
+              return i * legendSize + i * 10;
+            })
+            .text(function(d) {
+              return d;
+            });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            var stops = d3.range(0, 1.25, 0.25);
+            // console.log(stops);
+
+            svg.select("#colorGradient").selectAll("stop")
+              .data(stops).enter()
+              .append("stop")
+                .attr("offset", function(d) {
+                  return d * 100 + "%";
+                })
+                .attr("stop-color", function(d) {
+                  return barColor(d * maximum);
+                });
+
+
+          var gradientScale = d3.scaleLinear()////////
+            .domain([0, maximum])
+            .range([0, scaleWidth]);
+
+          var gradientAxis = d3.axisBottom(gradientScale);
+
+          scale.select("#scaleAxis")
+            .attr("transform", "translate(0, " + scaleHeight + ")")
+            .transition().duration(frequency / 2)
+            .call(gradientAxis);/////////////
+
+
+
+
+
+
+          // var barColor = d3.scaleLinear()//////////// 正常 barcolor
+          //   .domain([0, maximum])
+          //   .range(["red","green"]);
+
+
+
+
+
 
           var barHeight = d3.scaleLinear()
             .domain([0, maximum])
@@ -128,12 +310,16 @@
             .attr("class", "bar")
             .attr("width", barWidth)
             .call(zeroState)
+            .attr("fill","transparent") ////
             .attr("x", function(d, i) {
               return x(i + 1);
             });
 
           bars.merge(enter)
             .transition().duration(frequency / 2)
+            .attr("fill",function(d){    //////////
+              return barColor(d.users);
+            })
             .attr("height", function(d) {
               return barHeight(d.users);
             })
@@ -143,6 +329,17 @@
             .attr("x", function(d, i) {
               return x(i + 1);
             });
+
+
+
+
+
+
+
+
+
+
+
 
           bars.exit()
             .transition().duration(frequency / 2)
@@ -154,7 +351,7 @@
       }
 
       fetchData();
-      setInterval(fetchData, frequency);
+      var myInterval = setInterval(fetchData, frequency);
     </script>
 
   </body>
