@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8"/>
+    <title>Coin Desk!!!</title>
+    <script src="https://d3js.org/d3.v4.min.js"></script>
+    <style>
+        body{
+            background-color: rgb(172, 174, 156);
+            }
+
+        #scaleRect{
+            stroke: black;
+            }
+
+        #price{
+            font-family: "Helvetica Neue", Helvetica, Arial, Helvetica, sans-serif;
+            font-size: 30pt;
+            color:rgb(0, 255, 187);
+            font-weight: 700;
+            cursor: default;
+        }
+
+
+
+    
+    </style>
+  </head>
+  <body>
+    <div>
+      <h1>
+        The Bitcoin Price Index
+      </h1>
+      <P>API Source: <a href=https://api.coindesk.com/v1/bpi/historical/close.json>"https://api.coindesk.com/v1/bpi/historical/close.json"</a>
+      </P>
+      <div id="price"></div>
+  </div>
+    <svg id="chart">
+        <defs>
+            <linearGradient id="colorGradient">
+                <stop offset="0%" stop-color="purple"/>
+                <stop offset="50%" stop-color="orange"/>
+                <stop offset="100%" stop-color="yellow"/>
+            </linearGradient>
+        </defs>
+
+        <g id="shapes"></g>
+        <g id="x"></g>
+        <g id="y"></g>
+        <g id="scale">
+            <rect id="scaleRect" fill="url(#colorGradient)" />
+            <g id="scaleAxis"></g>
+        </g>
+    </svg>
+
+
+
+
+
+  <script>
+    // "https://api.coindesk.com/v1/bpi/historical/close.json"
+
+
+
+
+    var dataURL = "https://api.coindesk.com/v1/bpi/historical/close.json";
+
+    var width = window.innerWidth;
+    var height = 800;
+    var margin={top:30,left:80,right:100,bottom:170};
+
+    var chartWidth = width - margin.left - margin.right;
+    var chartHeight = height - margin.top - margin.bottom;
+
+
+    var svg=d3.select("#chart")
+        .attr("width",width)
+        .attr("height",height);
+
+
+
+    var scaleWidth = 600;
+    var scaleHeight = 30;
+
+    var scaleX = margin.left + chartWidth / 2 - (scaleWidth / 2)-30;
+    var scaleY = margin.top + chartHeight + 60;
+
+    var scale = svg.select("#scale")
+        .attr("transform", "translate(" + scaleX + ", " + scaleY + ")")
+
+        scale.select("#scaleRect")
+        .attr("width", scaleWidth)
+        .attr("height", scaleHeight);
+
+
+    var legendX = margin.left + chartWidth + 20;//控制图示的位置
+    var legendY = margin.top;
+    var legendSize = 20;
+
+    var legend = svg.select("#legend")
+        .attr("transform", "translate(" + legendX + ", " + legendY + ")");
+
+
+
+
+
+
+
+
+
+
+
+    
+    function fetchData(){
+    
+    d3.json(dataURL, function(error,data){
+      // console.log(data.bpi);
+
+      var bpi = []
+        for (var key in data.bpi) {
+          var newObject = {
+            time: key,   
+            price: data.bpi[key]
+          };
+          bpi.push(newObject);
+        }
+        bpi.splice(0, 14)
+        console.log(bpi);
+      
+
+
+
+
+
+    var legendData = bpi.map(function(d) {   //
+        return d.price;
+        });
+        console.log(legendData);
+
+        legendData = legendData.filter(function(d, i) {   /////////// 归类相同的数据。
+            return legendData.indexOf(d) === i;
+        })
+            .sort(function(a, b) {
+            return a - b;
+            });
+
+
+    var maximum = d3.max(bpi, function(d) {
+            return d.price;
+        });
+        console.log(maximum);
+
+    var minimum = d3.min(bpi, function(d) {
+            return d.price;
+        });
+        console.log(minimum);
+
+
+    
+    var barColor = d3.scaleSequential(d3.interpolateInferno) //彩虹 barcolor
+        .domain([8000, maximum]);////////domain
+
+
+
+    var legendRects = legend.selectAll("rect")//图示出现
+        .data(legendData);
+        console.log(legendData);
+
+    var legendRectsEnter = legendRects.enter().append("rect");
+
+        legendRects.merge(legendRectsEnter)
+        .attr("x", 0)
+        .attr("y", function(d, i) {
+            return i * legendSize + i * 10;
+        })
+        .attr("fill", barColor)
+        .attr("width", legendSize)
+        .attr("height", legendSize);
+
+
+
+
+        var legendTexts = legend.selectAll("text")// 图示旁边的文字注解
+        .data(legendData);
+
+        var legendTextsEnter = legendTexts.enter().append("text")
+        .attr("baseline-shift", "-100%");
+
+        legendTexts.merge(legendTextsEnter)
+        .attr("x", legendSize + 5)
+        .attr("y", function(d, i) {
+            return i * legendSize + i * 10;
+        })
+        .text(function(d) {
+            return d;
+        });
+
+
+
+
+
+
+
+
+
+
+
+
+
+        var stops = d3.range(0, 1.25, 0.25);
+        console.log(stops);
+
+        svg.select("#colorGradient").selectAll("stop")
+            .data(stops).enter()
+            .append("stop")
+                .attr("offset", function(d) {
+                  return d * 100 + "%";
+                })
+                .attr("stop-color", function(d) {
+                  return barColor(d * maximum);
+                });
+
+
+
+    var gradientScale = d3.scaleLinear()
+            .domain([minimum, maximum])
+            .range([0, scaleWidth]);
+
+    var gradientAxis = d3.axisBottom(gradientScale);
+
+        scale.select("#scaleAxis")
+            .attr("transform", "translate(0, " + scaleHeight + ")")
+            // .transition().duration()
+            .call(gradientAxis);
+
+
+
+
+
+
+
+
+
+
+
+
+
+    var xScale=d3.scaleBand()
+      .domain(["2020-02-11","2020-02-12","2020-02-13","2020-02-14","2020-02-15","2020-02-16","2020-02-17","2020-02-18","2020-02-19","2020-02-20","2020-02-21","2020-02-21","2020-02-22","2020-02-23","2020-02-24","2020-02-25","2020-02-26"])
+      // .domain(["1-12","1-13","1-14","1-15","1-16","1-17","1-18","1-19","1-20","1-21","1-22","1-23","1-24","1-25","1-26","1-27","1-28","1-29","1-30","1-31","2-01","2-02","2-03","2-04","2-05","2-06","2-07","2-08","2-09","2-10","2-11"])
+      .rangeRound([margin.left, width-margin.right])
+      // .attr("transform","rotate(45)")
+      .padding(0.3);
+
+    var yScale=d3.scaleLinear()
+      .domain([8000,maximum])
+      .range([height-margin.bottom, margin.top]);
+
+    var xAxis=svg.append("g")
+      .attr("transform",`translate(0, ${height-margin.bottom})`)
+      .call(d3.axisBottom().scale(xScale));
+
+    var yAxis = svg.append("g")
+      .attr("transform",`translate(${margin.left},0)`)
+      .call(d3.axisLeft().scale(yScale));
+
+
+    var xAxisLabel = svg.append("text")
+      .attr("class","axisLabel")
+      .attr("x", width/2)
+      .attr("y", height-margin.bottom+40)
+      .attr("text-anchor","middle")
+      .text("Date in 2020");
+
+    var yAxisLabel = svg.append("text")
+      .attr("class","axisLabel")
+      .attr("transform","rotate(-90)")
+      .attr("x",-height/2)
+      .attr("y",margin.left/2-10)
+      .attr("text-anchor","middle")
+      .text("United States Dollar");
+
+
+
+    var bar=svg.selectAll("rect")
+      .data(bpi) 
+      .enter()
+      .append("rect")
+        .attr("x",function(d) { return xScale(d.time); })
+        .attr("y",function(d) { return yScale(d.price); })
+        .attr("width",xScale.bandwidth())
+        .attr("height",function(d) { return height-margin.bottom-yScale(d.price);})
+        .attr("fill",function(d){    
+                return barColor(d.price);
+            });
+
+
+
+
+    var tooltip = d3.select("#chart")
+      .append("div")
+      .attr("class","tooltip");
+
+    var tooltip = d3.select("#price")
+    .append("div")
+    .attr("class","tooltip");
+
+    bar.on("mouseover", function(d) {
+
+      tooltip.style("visibility", "visible")
+        .text(d.price + " $" );
+        // .attr("fill",function(d){    
+        //         return barColor(d.price);
+        //     });
+        
+
+
+      d3.select(this)
+        .attr("stroke","white")
+        .attr("stroke-width", 3);
+
+    }).on("mouseout", function(d){
+
+      tooltip.style("visibility","hidden");
+
+      d3.select(this)
+        .attr("stroke","none");
+    //   .attr("stroke","red")
+    //   .attr("stroke-width", 1);
+    })
+
+
+
+
+
+
+  });
+
+
+}
+fetchData();
+
+
+
+
+
+
+
+
+
+
+
+
+</script>
+</body>
+</html>
