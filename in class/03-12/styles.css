@@ -1,0 +1,46 @@
+body {
+    margin: 0;
+  }
+  
+  h1 {
+    font-family: "Comic Sans MS";
+    text-align: center;
+  }
+
+  #banner {
+    background-color:black;
+    padding: 20vh 20px;
+    text-align: center;
+    background-image: url('https://cdn2.thecatapi.com/images/MTkwODcxNw.jpg');
+    background-position: 50% 50%;
+    background-size: cover;
+    text-shadow:0 2px 5px black;
+    color:white;
+  }
+
+  .section {
+    display: flex;
+    padding: 20px;
+  }
+  
+  .section p {
+    flex: 1;
+  }
+  
+  .section svg {
+    border: 1px solid red;
+    flex: 2;
+    height: 300px;
+    margin: 20px;
+  }
+
+
+
+  @media (max-width: 600px) {
+    .section {
+      flex-direction: column;
+    }
+    .section svg {
+      flex: none;
+    }
+  }
