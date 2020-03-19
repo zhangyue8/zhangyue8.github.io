@@ -1,12 +1,4 @@
-window.onscroll = function() {scrollFunction()};
 
-function scrollFunction() {
-  if (document.body.scrollTop > 60 || document.documentElement.scrollTop > 60) {
-    document.getElementById("navbar").style.top = "0";
-  } else {
-    document.getElementById("navbar").style.top = "-70px";
-  }
-}
 
 
 var promises = [
@@ -18,9 +10,18 @@ Promise.all(promises).then(function(data) {
 
 
     var earthquakeData = data[0];
+    console.log(earthquakeData);
+
 
 
     var jpn = data[1];
+    console.log(jpn);
+
+
+
+
+
+
 
     var width = document.querySelector("#chart").clientWidth;
     var height = document.querySelector("#chart").clientHeight;
@@ -34,7 +35,7 @@ Promise.all(promises).then(function(data) {
 var projection = d3.geoMercator()
     .translate([width/2,height/2])
     .center([138.2529, 36.2048])
-    .scale(1300);
+    .scale(1500);
 
 
 
@@ -92,7 +93,7 @@ var c = svg.selectAll("circle")
             }).attr("cy",function(d){
                 var proj = projection([d.longitude, d.latitude]);
                 return proj[1];
-            }).attr("r",60)
+            }).attr("r",20)
             .attr("opacity",0.1)
             .attr("fill","#cc0000")
     .merge(c)
@@ -104,7 +105,7 @@ var c = svg.selectAll("circle")
         }).attr("cy",function(d){
             var proj = projection([d.longitude, d.latitude]);
             return proj[1];
-        }).attr("r",7)
+        }).attr("r",5)
         .attr("opacity",0.3)
         .attr("fill","#cc0000");
 
@@ -126,6 +127,8 @@ var c = svg.selectAll("circle")
                 .style("left",+ cx + "px")
                 .style("top",+ cy + "px")
                 .html("Magnitude:"+ d.mag +"<br>"+ d.date.toLocaleDateString("ja-JP"));
+
+
 
             svg.selectAll("circle")
                 .attr("opacity", 0.2);
