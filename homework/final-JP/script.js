@@ -14,8 +14,16 @@ Promise.all(promises).then(function(data) {
 
 
 
+
+
+
     var jpn = data[1];
     console.log(jpn);
+
+    earthquakeData = earthquakeData.filter(function(d){
+        return d3.geoContains(jpn,[d.longitude,d.latitude])
+
+    })
 
 
 
