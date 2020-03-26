@@ -24,6 +24,7 @@ Promise.all(promises).then(function(data) {
         return d3.geoContains(jpn,[d.longitude,d.latitude])/////////
 
     })
+    console.log(earthquakeData);
 
 
 
