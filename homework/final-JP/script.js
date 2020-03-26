@@ -80,7 +80,7 @@ var selectedYear = select.property("value")
 var yearLabel = svg.append("text")
     .attr("class","yearLabel")
     .attr("x",50)
-    .attr("y", height-300)
+    .attr("y", height-500)
     .text(selectedYear);
     
 
