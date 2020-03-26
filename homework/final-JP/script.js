@@ -21,7 +21,7 @@ Promise.all(promises).then(function(data) {
     console.log(jpn);
 
     earthquakeData = earthquakeData.filter(function(d){
-        return d3.geoContains(jpn,[d.longitude,d.latitude])
+        return d3.geoContains(jpn,[d.longitude,d.latitude])/////////
 
     })
 
@@ -43,7 +43,7 @@ Promise.all(promises).then(function(data) {
 var projection = d3.geoMercator()
     .translate([width/2,height/2])
     .center([138.2529, 36.2048])
-    .scale(1500);
+    .scale(2000);
 
 
 
