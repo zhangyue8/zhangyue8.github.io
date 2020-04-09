@@ -68,14 +68,14 @@ var projection = d3.geoMercator()
     earthquakeData = earthquakeData.sort(function(a,b) { return a.year - b.year; });
 
 
-var select = d3.select("#selectYear");
+var slider = d3.select("#selectYear");
 
-select
+slider
     .property("min",earthquakeData[0].year)
     .property("max",earthquakeData[earthquakeData.length-1].year)
     .property("value",earthquakeData[earthquakeData.length-1].year);
 
-var selectedYear = select.property("value")
+var selectedYear = slider.property("value")
 
 
 var yearLabel = svg.append("text")
@@ -163,7 +163,7 @@ var c = svg.selectAll("circle")
     updateMap(selectedYear);
 
  
-select.on("input",function(){
+slider.on("input",function(){
     var year = this.value;
     console.log(year);
     selectedYear = year;
