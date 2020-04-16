@@ -34,7 +34,7 @@ Promise.all(promises).then(function(data) {
 		.data(jpn.features)
 		.enter()
 		.append("path")
-		.attr("stroke", "red")
+		.attr("stroke", "black")
 		.attr("stroke-width", "0.3")
 		.attr("fill", "white")
 		.attr("d", path);
@@ -211,7 +211,7 @@ Promise.all(promises).then(function(data) {
 		.append("div")
 		.attr("class", "tooltip");
 
-	//创建一个散点图
+	//散点图
 	function createChart(year) {
 		var filtered_data = earthquakeData.filter(function(d) {
 			return d.year == year;
@@ -279,16 +279,16 @@ Promise.all(promises).then(function(data) {
 				return color;
 			
 			})
-	   //x坐标轴
+	   //x
 	       let xAxis=d3.axisBottom()
 	       .scale(xScale)
 	       .ticks(20)
 	 
-	       //y坐标轴
+	       //y
 	       let yAxis=d3.axisLeft()
 	       .scale(yScale)
 	       .ticks(15)
-		   //把坐标轴添加到画布中
+		   //
 		   svg.append("g")
 		   .attr("class","axis")
 		   .attr("transform","translate(0,"+(h-30)+")")

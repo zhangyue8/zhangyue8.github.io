@@ -18,7 +18,7 @@ html, body {
 
 #slider {
 -webkit-appearance: none;
-    width: 75%;
+    width: 55%;
     margin: 0 auto;
     height: 26px;
     border-radius: 5px;
@@ -49,6 +49,7 @@ html, body {
 
 .text {
   text-align:center;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
 .pop{
