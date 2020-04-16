@@ -89,7 +89,7 @@ Promise.all(promises).then(function(data) {
 			}).attr("cy", function(d) {
 				var proj = projection([d.longitude, d.latitude]);
 				return proj[1];
-			}).attr("r", 20)
+			}).attr("r", 50)
 			.attr("mag", function(d) {
 				var proj = d.mag;
 				return proj;
@@ -124,7 +124,7 @@ Promise.all(promises).then(function(data) {
 			})
 			.merge(c)
 			.transition()
-			.duration(1300)
+			.duration(1000)
 			.attr("cx", function(d) {
 				var proj = projection([d.longitude, d.latitude]);
 				return proj[0];
@@ -132,6 +132,7 @@ Promise.all(promises).then(function(data) {
 				var proj = projection([d.longitude, d.latitude]);
 				return proj[1];
 			}).attr("r", 5)
+			.attr("opacity", 0.9)
 			
 			.attr("fill", function(d) {
 				var color = "#000000";
@@ -249,7 +250,7 @@ Promise.all(promises).then(function(data) {
 				console.log("d.mag*50=="+d.mag*50)
 				return yScale(d.mag);
 			})
-			.attr("r", 3)
+			.attr("r", 5)
 			.attr("opacity", 0.3)
 			.attr("fill", function(d) {
 				var color = "#000000";
