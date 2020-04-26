@@ -9,6 +9,7 @@ html, body {
   height: 100%;
   margin: 0px;
   padding: 0px;
+  padding-bottom: 50px;
 }
 
 #slider {
@@ -225,4 +226,15 @@ html, body {
 	bottom: -2800px;
 	z-index: -1;
 	color: red;
+}
+
+.footer {
+  text-align:center;
+  position: fixed;
+  left: 0px;
+  bottom: 0px;
+  width: 100%;
+  height: 50px;
+  background-color: #eee;
+  z-index: 9999;
 }
