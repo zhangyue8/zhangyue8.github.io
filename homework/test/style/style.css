@@ -16,9 +16,10 @@ html, body {
   width:100%;
 }
 
+
 #slider {
 -webkit-appearance: none;
-    width: 55%;
+    width: 75%;
     margin: 0 auto;
     height: 26px;
     border-radius: 5px;
