@@ -30,7 +30,7 @@
 
 <script>
 
-  var roster = [
+    var roster = [
     ["裤子"],
     ["衣服"],
     ["粑粑"],
@@ -41,26 +41,26 @@
     ["青蛙"],
     ["啤酒"],
     ["花火大会"]
-  ];
+    ];
 
-  var link = document.getElementById("name"),
-      assignment = document.getElementById("assignment"),
-      button = document.getElementById("button");
+    var link = document.getElementById("name"),
+        assignment = document.getElementById("assignment"),
+        button = document.getElementById("button");
 
-  button.addEventListener("click", function() {
+    button.addEventListener("click", function() {
 
     button.innerHTML = "Next";
 
     var person;
 
     if (roster.length) {
-      var int = Math.floor(Math.random() * roster.length);
-      person = roster.splice(int, 1)[0];
+        var int = Math.floor(Math.random() * roster.length);
+        person = roster.splice(int, 1)[0];
 
     }
     else {
-      person = ["Done!", "#"];
-      button.style.visibility = "hidden";
+        person = ["Done!", "#"];
+        button.style.visibility = "hidden";
     }
 
     console.log(person);
