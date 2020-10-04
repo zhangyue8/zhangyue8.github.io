@@ -1,0 +1,112 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+<head>
+	<meta charset="utf-8" />
+	<title>翻书DEMO</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+	<meta name="apple-mobile-web-app-capable" content="yes" />
+	<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+	<link rel="stylesheet" type="text/css" href="css/book.css" />
+	<script>
+		!function(a){function b(){var b,c,e,i,f=a.document,g=f.documentElement,h=g.getBoundingClientRect().width;b||c||(i=!!a.navigator.appVersion.match(/AppleWebKit.*Mobile.*/),b=a.devicePixelRatio,e=a.devicePixelRatio,b=i?b:1,c=1/b),g.style.fontSize=h>=640?"40px":320>=h?"20px":20*(h/320)+"px"}a.addEventListener("resize",function(){b()}),b()}(window);
+	</script>
+</head>
+<!-- 注：加ontouchstart使css：active生效 -->
+<body ontouchstart="" class="lifeshow">
+	<div class="mod_container">
+	<a href="javascript:void(0);" class="next_btn">下一页</a>
+	<a href="javascript:void(0);" class="pre_btn">上一页</a>
+		<div class="book">
+			<!-- 书页 -->
+			<div class="book_wrap">
+				<div id="page0" class="page ini">
+					<div class="side side_left">
+					</div>
+					<div class="side side_right">
+					</div>
+				</div>
+
+				<div id="page1" class="page foldright">
+					<div class="paper">
+						<div class="side side_left">
+						</div>
+						<div class="side side_right">
+						</div>
+					</div>
+				</div>
+
+				<div id="page2" class="page foldright">
+					<div class="paper">
+						<div class="side side_left">
+						</div>
+						<div class="side side_right">
+						</div>
+					</div>
+				</div>
+
+				<div id="page3" class="page foldright">
+					<div class="paper">
+						<div class="side side_left">
+						</div>
+						<div class="side side_right">
+						</div>
+					</div>
+				</div>
+
+				<div id="page4" class="page foldright">
+					<div class="paper">
+						<div class="side side_left">
+						</div>
+						<div class="side side_right">
+						</div>
+					</div>
+				</div>
+
+				<div id="page5" class="page foldright">
+					<div class="paper">
+						<div class="side side_left">
+						</div>
+						<div class="side side_right">
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<script>
+		var pageHeight = document.documentElement.clientHeight;
+		var page = 0;
+		var pageNum;
+
+		document.querySelector('.mod_container').style.height = pageHeight + 'px';
+		pageNum = document.querySelectorAll('.page').length;
+
+		document.querySelector('.next_btn').onclick = function(){
+			if(page>0){
+				document.getElementById('page' + (page-1)).setAttribute('class', 'page foldleft');
+			}
+			if(page < pageNum-1){
+				document.getElementById('page' + page).setAttribute('class', 'page pre');
+				page += 1;
+				document.getElementById('page' + page).setAttribute('class', 'page unfold');
+				document.querySelector('.mod_container').setAttribute('class', 'mod_container p_turnleft page'+page);
+			}else{
+				console.log(page);
+				document.querySelector('.mod_container').setAttribute('class', 'mod_container p_turnleft page'+page + ' end');
+			}
+		};
+
+		document.querySelector('.pre_btn').onclick = function(){
+			if(page < pageNum -1){
+				document.getElementById('page' + (page+1)).setAttribute('class', 'page foldright');
+			}
+			if(page > 0){
+				document.getElementById('page' + page).setAttribute('class', 'page pre');
+				page -= 1;
+				document.getElementById('page' + page).setAttribute('class', 'page unfold');
+				document.querySelector('.mod_container').setAttribute('class', 'mod_container p_turnright page'+page);
+			}
+		};
+	</script>
+</body>
+</html>
