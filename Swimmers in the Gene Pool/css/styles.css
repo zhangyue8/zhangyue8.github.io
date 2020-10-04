@@ -6,7 +6,7 @@ body {
   margin: 0;
   font-size: 12pt;
   color: #DBDAD9;
-  background-image: url('/projects/sperm-gene-pool/img/background2.svg');
+  background-image: url('../img/background2.svg');
   background-attachment: fixed;
   background-size: cover;
   background-position: 50% 50%;
