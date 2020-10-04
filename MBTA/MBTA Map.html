@@ -1,0 +1,46 @@
+<head>
+    <!-- D3.js source code -->
+    <script src="https://d3js.org/d3.v4.min.js"></script>
+  
+    <!-- Leaflet CSS source code -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
+    integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
+    crossorigin=""/>
+  
+    <!-- Leaflet JavaScript source code -->
+    <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"
+    integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew=="
+    crossorigin=""></script>
+    <link rel="stylesheet" href="css/style.css"/>
+  </head>
+  <body id="mbta">
+    <div id="header">
+      <div id="headertexts">
+        <h2>Live Tracking MBTA Trains and Bus Vehicles</h2>
+        <p id="tagline">Find out where your bus and train is</p>
+        <img width="70px" height="70px" src="image/mbtatrain1.png">
+  
+      </div>
+    </div>
+    <label id="selector"> Track an MBTA route:
+      <select class="dropdown">
+        <option>Choose a route</option>
+        <option value="Orange">Orange Line</option>
+        <option value="Red">Red Line</option>
+        <option value="Blue">Blue Line</option>
+        <option value="Green-B">Green Line B</option>
+        <option value="Green-C">Green Line C</option>
+        <option value="Green-D">Green Line D</option>
+        <option value="Green-E">Green Line E</option>
+        <option value="1">Bus 1</option>
+        <option value="15">Bus 15</option>
+        <option value="39">Bus 39</option>
+        <option value="66">Bus 66</option>
+      </select>
+    </label>
+    <div id="map"></div>
+    <!-- <p>Photo by VanveenJF on Unsplash</p> -->
+    <script src="js/week2.js"></script>
+  </body>
+  
+  
