@@ -1,0 +1,345 @@
+@import url('https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,100:0,300;0,400;0,500;0,800;1,300&display=swap');
+
+
+
+body { 
+  margin: 0;
+  font-size: 12pt;
+  color: #DBDAD9;
+  background-image: url('/projects/sperm-gene-pool/img/background2.svg');
+  background-attachment: fixed;
+  background-size: cover;
+  background-position: 50% 50%;
+  font-family: 'Barlow', sans-serif;
+  font-weight: 100;
+  
+}
+
+h1 { 
+  font-size: 6em;
+  font-weight: 600;
+  margin: auto;
+}
+
+h2 {
+  font-size: 2em;
+  padding-top: 2em;
+}
+
+h3 {
+  font-size: 2em;
+  line-height: 1.2em;
+}
+
+h4 {
+  font-size: 1.5em;
+}
+
+.content {
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 5em;
+  text-align: left;
+  line-height: 1.5em;
+  
+}
+
+.img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+#spermieDiagram {
+  height: 200px;
+  float: right;
+  margin: 50px;
+}
+
+.caption{
+  max-width: 700px;
+  margin: auto;
+  padding-top: 10px;
+  font-style: italic;
+  line-height: 1.5em;
+  opacity: .6;
+}
+.pic-container {
+  max-width: 1200px;
+  align-content: center;
+  margin: auto;
+  opacity: .9;
+}
+
+.banner {
+  width: 100%;
+  background-position: 50% 60%;
+  background-size: cover;
+  text-align: center;
+}
+
+#title-banner-container {
+  background-image: linear-gradient(0deg, rgba(0,0,0,.7) 0%, rgba(100,100,100,.7) 100%), url('/projects/sperm-gene-pool/img/spermMicroscope.gif');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-color: black;
+}
+
+#title-banner {
+  width: 66%;
+  margin: auto;
+  padding-top: 40vh;
+  padding-bottom: 20vh;
+  justify-content: center;
+  text-align: center;
+}
+
+.hidden-div {
+  display: block;
+}
+
+.section {
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+span .interactive-title {
+  display: inline-block
+}
+
+select {
+  -webkit-appearance: none;
+  background-color: transparent;
+  margin: 0 .3em;
+  font-size: 1em;
+  color: #DBDAD9;
+  font-weight: bold;
+  appearance: none;
+  border: 0;
+  outline: 0;
+  border-bottom: 1px solid #DBDAD9;
+  border-radius:0;
+}
+
+.section p { 
+  flex: 1;
+
+}
+
+svg {
+  height: 100vh;
+  width: 100%;
+  
+}
+
+@media (max-width: 600px) {
+  .section {
+   
+  }
+  .section svg {
+    flex: none;
+  }
+}
+
+
+
+
+a {
+  color: #DBDAD9;
+  text-decoration: underline;
+}
+
+a:hover {
+  cursor: pointer;
+}
+
+a:visited {
+  opacity: .7;
+}
+
+
+body::-webkit-scrollbar {
+  width: 1em;
+}
+ 
+body::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+}
+ 
+body::-webkit-scrollbar-thumb {
+  background-color: darkgrey;
+  outline: 1px solid slategrey;
+}
+
+
+
+/* SVG and Spermies Styles */
+
+.spermies {
+  padding: 1px;
+  cursor: pointer;
+
+}
+
+.title {
+  font-size: .8em;
+  font-weight: 600;
+  fill: #DBDAD9;
+}
+
+/* Doodads*/
+
+.selected {
+  
+  box-shadow: 0px 0px 40px 40px white;
+  stroke: white;
+  stroke-width: 2px;
+  color: none;
+  
+}
+
+#toolbar-wrapper {
+  background-color:rgba(255,255,255,0.1);
+  padding-bottom: 1em;
+}
+
+#toolbar-container {
+  font-size: .8em;
+  color: #DBDAD9;
+  max-width: 85%;
+  margin: auto;
+  display: grid;
+
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 20px;
+  grid-template-areas: 
+    "groupToolbar colorToolbar filterToolbar";
+    /* "groupToolbar colorToolbar tooltip"; */
+}
+
+
+
+#colorToolbar { 
+  grid-area: colorToolbar; 
+}
+
+#groupToolbar { 
+  grid-area: groupToolbar; 
+}
+
+#filterToolbar { 
+  grid-area: filterToolbar; 
+}
+/* 
+#tooltip { 
+  grid-area: tooltip; 
+} */
+
+
+.tooltip {
+  margin: 10px;
+  font-weight: 100;
+  font-size: .8em;
+  line-height: 1.5;
+  padding: 20px;
+  background-color:rgba(0,0,0,0.7);
+  border: 1px solid darkgray;
+  width: 300px;
+  display: none;
+
+}
+
+.ttHeader {
+  font-size: 1.3em;
+  font-weight: 500;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+#tooltip-instructions > p {
+  text-align: center;
+  font-style: italic;
+  opacity: .5;
+}
+
+.info {
+  font-weight: 100;
+  opacity: .3;
+}
+
+.break {
+  font-size: 1.2em;
+  font-weight: 800;
+  opacity: .3;
+  line-height: 3em;
+}
+
+
+
+/* Buttons */
+
+
+.button-container {
+  padding-top: 20px;
+  text-align: center;
+  margin: auto;
+}
+
+button {
+  display: inline-block;
+  background-color: transparent;
+  color: #DBDAD9;
+  padding: 7px;
+  margin:0 0.2em 0.2em 0;
+  border:0.1em solid #DBDAD9;
+  border-radius:0.12em;
+  box-sizing: border-box;
+  text-decoration:none;
+  text-align:center;
+  transition: all 0.2s;
+  min-width: 110px;
+  cursor: pointer;
+  font-size: .8em;
+}
+
+button:focus {
+  outline: 0;
+}
+
+button:hover {
+  color:#000000;
+  background-color:#DBDAD9;
+}
+
+.gbutton.active {
+  background: #DBDAD9;
+  color: #000000;
+}
+
+.cbutton.active {
+  background: #DBDAD9;
+  color: #000000;
+}
+
+/* Special X Out button */
+
+#xOut {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  min-width: 30px;
+  opacity: .5;
+  border: none;
+}
+
+
+
+
+footer {
+  padding: 40px;
+  background-color: black;
+  opacity: .4;
+  text-align: right;
+}
+
