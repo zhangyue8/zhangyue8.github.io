@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+        <title>Final Data</title>
+        <meta name="description" content="Scrollama: Sticky Side Example" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+        <link rel="stylesheet" type="text/css" href="./style.css">
+        <script src = "https://d3js.org/d3.v4.min.js"></script>
+        <script src="https://unpkg.com/topojson@3"></script>
+
+        <script src="https://d3js.org/d3-scale-chromatic.v1.min.js"></script>
+        <script src="https://d3js.org/d3-geo-projection.v2.min.js"></script>
+    </head>
+
+    <body>
+
+        <div id="banner">
+
+            <svg id = "viz">
+
+                <rect id = "ocean" fill = "white" />
+                <g id = "map"></g>
+
+            </svg>
+            
+                    
+
+            <div id = "title">
+                <h1>- Coronavirus Confirmed Cases Timelines -</h1>
+
+                <p id = "intro">
+                    Coronavirus disease (COVID-19) is an infectious disease caused by a new virus. It was first identified in China and spreading to the whole world very quickly.
+                    <br>
+                    I chose the four countries with the largest number of confirmed cases to compare their growth rates, and they were China, U.S., Italy, and Spain (now it has become U.S., Spain, Italy, and France).<br>
+
+                    I don't think one death is a tragedy a million deaths is a statistic. I think a million deaths mean a million broken families. I feel sad by many unfortunate stories and hope that humans will learn from this.
+                    
+                    <br>
+                    <i style="font-size: 8pt">Note 1: Contents Reference: Wikipedia;<br>
+                                            Note 2: Hang over your mouse on each circle to see numbers.</i>
+                </p>
+
+                
+            </div>
+            
+        </div>
+
+        <main>
+        
+            <section id="scrolly">
+                <article>
+                    <div class="step" data-step="1">
+                        <p style="font-size: 18pt; font-weight: bold;">China</p>
+                        <p><b>December, 31, 2019</b><br>
+                            The disease was first identified in Wuhan, the capital of China's Hubei province, and has since spread globally, resulting in the ongoing 2019–20 coronavirus pandemic.<br>
+
+                            <b>January, 5, 2020</b><br>
+                            the WHO released its first briefing on cases of pneumonia of unknown cause in Wuhan.<br>
+                        
+                            <b>January, 12, 2020</b><br> 
+                            Chinese government shared information on the genome sequence of the novel coronavirus with the WHO. <br>
+                            
+                            <b>January, 20, 2020</b><br> 
+                            Zhong Nanshan, a academician chinese of acadeny of engineering said that this virus was confirmed to have human-to-human transmission.
+                            
+                            <b>January, 23, 2020</b><br> 
+                            Wuhan Lockdown.
+                        </p>
+                    </div>
+
+                    <div class="step" data-step="2">
+                        <p style="font-size: 18pt; font-weight: bold;">U.S.</p>
+                        <p><b>January, 20, 2020</b><br>
+                            The Centers for Disease Control and Prevention has confirmed the first U.S. case has been detected in Washington state.<br>
+                            
+                            <b>February, 29, 2020</b><br>
+                            President Donald Trump ar a rally in South Carolina.<br>
+
+                            <b>March, 13, 2020</b><br>
+                            President Donald Trump officially declared a national emergency.<br>
+
+                            <b>March, 26, 2020</b><br>
+                            The total number of reported confirmed cases in the United States surpasses that of China, making it the country with the highest number of coronavirus patients, in the world.<br>
+                        
+                            <b>April, 15, 2020</b><br>
+                            A large scale rally called "Operation Gridlock" takes place in Lansing to protest Gov. Whitmer's stay-at-home order.<br>
+                        </p>
+                    </div>
+
+                    <div class="step" data-step="3">
+                        <p style="font-size: 18pt; font-weight: bold;">Italy</p>
+                        <p><b>January, 31, 2020</b><br>
+                            This disease was first confirmed to have spread to Italy, when two Chinese tourists in Rome tested positive for the virus.<br>
+
+                            <b>February, 23, 2020</b><br>
+                            More than 60 additional cases and the first deaths was confirmed.<br>
+
+                            <b>By the beginning of March</b><br>
+                            The virus had spread to all regions of Italy.<br>
+                            
+                            <b>March, 19, 2020</b><br>
+                            Italy became the country with the highest number of confirmed coronavirus deaths in the world.<br>
+                            
+                            <b>April, 16, 2020</b><br>
+                            Italy had conducted about 1,178,000 tests for the virus. Due to the limited number of tests performed, the real number of infected people in Italy, as in other countries, is estimated to be higher than the official count.<br>
+                    </div>
+                    
+                    <div class="step" data-step="4">
+                        <p style="font-size: 18pt; font-weight: bold;">Spain</p>
+                        <p><b>January, 31, 2020</b><br>
+                            A German tourist tested positive for SARS-CoV-2 in La Gomera, Canary Islands.<br>
+
+                            <b>February, 24, 2020</b><br>
+                            Spain confirmed multiple cases related to the Italian cluster, originating from a medical doctor from Lombardy, Italy, who was on holiday in Tenerife.<br>
+
+                            <b>March, 14, 2020</b><br>
+                            A state of alarm and national lockdown was imposed.<br>
+                            
+                            <b>March, 25, 2020</b><br>
+                            The death toll in Spain surpassed that reported in mainland China and only Italy had a higher death toll globally.<br>
+
+                            <b>April, 16, 2020</b><br>
+                            The actual number of cases, however, is likely to be much higher, as many people with only mild or no symptoms are unlikely to have been tested.
+
+
+
+                        </p>
+                    </div>
+                </article>
+        
+                <figure>
+                    <svg id="lineChart">
+                        <g id = "xAxis"></g>
+                        <g id = "yAxis"></g>
+                    </svg>
+
+                    <div id = "pinup">
+                        <p>Data set resource:<a href="https://ourworldindata.org/coronavirus-data">https://ourworldindata.org/coronavirus-data</a></p>
+                    </div>
+                    
+                </figure>
+
+                
+            </section>
+        
+            <section id="outro"></section>
+
+        </main>
+        
+        <div id = "footer">
+            <p>ARTG5430 (Spring 2020) | Designed by Nicole | Thanks for Dear Dave!</p>
+        </div>
+
+
+
+        <script src="https://unpkg.com/intersection-observer@0.5.1/intersection-observer.js"></script>
+        <script src="./stickyfill.min.js"></script>
+        <script src="./scrollama.min.js"></script>
+
+
+        <div id="tooltip"></div>
+
+
+        <div id="chart"></div>
+        <script src="./script.js"></script>
+
+
+    </body>
+</html>
