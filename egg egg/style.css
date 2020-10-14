@@ -1,0 +1,515 @@
+/* General */ 
+
+@import url('https://fonts.googleapis.com/css?family=Nunito&display=swap');
+  
+
+* {
+  box-sizing: border-box;
+}
+  
+
+html, body {
+  margin: 0px;
+  padding: 0px;
+  display: flex;
+  flex-direction: column;
+  font-family: 'Nunito', sans-serif;
+  color: #352418;
+  font-size: 12pt;
+  line-height: 1.5;
+  background-color: #f9f9f7;
+}
+
+header {
+  
+  background-color: #352418
+}
+
+
+h1 {
+  display: block;
+  margin: -60px -25px 0 0;
+  font-weight: bold;
+}
+
+a {
+  text-decoration: none;
+  color: #fa8c00;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+a:active {
+  color: black;
+}
+
+a:visited {
+  color:#fed200;
+}
+
+.title {
+  max-width: 1000px;
+  height: 100vh;
+  margin: auto;
+  text-align: left;
+  padding-bottom: 40vh;
+  display: flex;
+  flex-direction: column;
+  }
+
+.title p {
+  color: #f9f9f7;
+  opacity: 20%;
+  text-align: right;
+  font-size: .8em;
+}
+  
+.title-text {
+  display: flex;
+  flex-direction: column;
+  color: #f9f9f7;
+  font-size: 2.8em;
+  padding-top: 200px;
+}
+
+.title-animation-wrap {
+  margin: auto;
+  position: absolute;
+  right: 15%;
+  top: 30%;
+}
+
+
+/* Keyframes animation */
+
+#bad-egg-svg {
+  animation: peek 2s ease forwards; 
+  animation-delay: .5s;
+  opacity: 0;
+}
+
+@-webkit-keyframes peek {
+  0% {
+    transform: scale(.8);
+    opacity: 0;
+  }
+  
+  100% {
+    transform-origin: bottom right;
+    transform: scale(1) translate(10px, 120px) rotate(.1turn);
+    opacity: 1;
+  }
+}
+
+@keyframes peek {
+  0% {
+    transform: scale(.8);
+    opacity: 0;
+  }
+  
+  100% {
+    transform-origin: bottom right;
+    transform: scale(1) translate(10px, 120px) rotate(.1turn);
+    opacity: 1;
+  }
+}
+
+
+
+#title-text2 {
+  padding-top: 1.2em;
+  position: absolute;
+  animation: hide 10s ease infinite;
+  opacity: 0;
+}
+
+@-webkit-keyframes hide {
+  0% { opacity: 1; }
+  10% { opacity: 0}
+  20% { opacity: 0; }
+}
+
+
+@keyframes hide {
+  0% { opacity: 0; }
+  10% { opacity: 1}
+  20% { opacity: 0; }
+}
+
+
+#title-text3 {
+  padding-top: 1.2em;
+  position: absolute;
+  animation: showBad 10s ease infinite;
+  opacity: 0;
+}
+
+@-webkit-keyframes showBad {
+  20% { opacity: 0; }
+  30% { opacity: 1}
+  40% { opacity: 0; }
+}
+
+
+@keyframes showBad {
+  20% { opacity: 0; }
+  30% { opacity: 1}
+  40% { opacity: 0; }
+}
+
+
+#title-text4 {
+  padding-top: 1.2em;
+  position: absolute;
+  animation: showCF 10s ease infinite;
+  opacity: 0;
+}
+
+@-webkit-keyframes showCF {
+  40% { opacity: 0; }
+  50% { opacity: 1}
+  60% { opacity: 0; }
+}
+
+
+@keyframes showCF {
+  40% { opacity: 0; }
+  50% { opacity: 1}
+  60% { opacity: 0; }
+}
+
+
+#title-text5 {
+  padding-top: 1.2em;
+  position: absolute;
+  animation: showVF 10s ease infinite;
+  opacity: 0;
+}
+
+@-webkit-keyframes showVF {
+  60% { opacity: 0; }
+  70% { opacity: 1}
+  80% { opacity: 0; }
+}
+
+
+@keyframes showVF {
+  60% { opacity: 0; }
+  70% { opacity: 1}
+  80% { opacity: 0; }
+}
+
+
+
+#title-text6 {
+  padding-top: 1.2em;
+  position: absolute;
+  animation: showH 10s ease infinite;
+  opacity: 0;
+}
+
+@-webkit-keyframes showH {
+  80% { opacity: 0; }
+  90% { opacity: 1}
+  100% { opacity: 0; }
+}
+
+
+@keyframes showH {
+  80% { opacity: 0; }
+  90% { opacity: 1}
+  100% { opacity: 0; }
+}
+
+
+
+
+#title-text7 {
+  padding-top: 1.6em;
+  
+}
+
+.byline {
+  opacity: .4;
+}
+
+#grosh {
+  background-image: linear-gradient(180deg, rgba(177,212,206,.9), 10%, rgba(76,99,117,.9) 100%), url(img/grocerystore.jpg);
+  height: 120vh;
+  background-size:cover;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+}
+
+#grosh-header{
+  text-align: center;
+  margin: 70vh auto auto auto;
+  font-size: 5em;
+  color: #f9f9f7;
+}
+
+.break {  
+  height: 30vh;
+  color: #f9f9f7;
+  background-size:cover;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+}
+
+#break1 {
+  background-image: linear-gradient(180deg, rgba(177,212,206,.9), 10%, rgba(76,99,117,.9) 100%), url(img/farmhouse.jpg);
+}
+#break2 {
+  background-image: linear-gradient(180deg, rgba(177,212,206,.9), 10%, rgba(76,99,117,.9) 100%), url(img/vital.jpg);
+}
+
+#break3 {
+  background-image: linear-gradient(180deg, rgba(177,212,206,.9), 10%, rgba(76,99,117,.9) 100%), url(img/marketbasket.jpg);
+}
+
+
+/* Eggsamples */
+
+.examplelabel {
+  font-size: .4em;
+}
+
+.examplelabel-big {
+  font-size: .6em;
+}
+
+.eggsample-text {
+  font-size:10px;
+  font-family:Nunito-Regular, Nunito;
+}
+
+.bad {
+  fill:#4c6375;
+  color:#4c6375;
+}
+
+.neutral {
+  fill:#b1d4ce;
+  color:#b1d4ce;
+}
+
+.good {
+  fill:#fed200; 
+  color:#fed200; 
+}
+
+.misleading {
+  fill:#fa8c00;
+  color:#fa8c00;
+}
+
+
+.eggsample-bad {
+  stroke:#4c6375;
+  fill:none;
+  stroke-width: 1px;
+}
+.eggsample-neutral {
+  stroke:#b1d4ce;
+  fill: none;
+  stroke-width: 1px;
+}
+.eggsample-good {
+  stroke:#fed200; 
+  fill: none;
+  stroke-width: 1px;
+}
+.eggsample-misleading {
+  stroke:#fa8c00;
+  fill: none;
+  stroke-width: 1px;
+}
+
+
+
+
+
+
+/* The Rest */
+
+#potatoes {
+  padding-top: 100px;
+}
+
+.content {
+    max-width: 600px;
+    margin: 30px auto 30px auto;
+    padding: 40px 0 30px 0;
+    align-content: center;
+    font-weight: normal;
+    }
+
+p .text{
+    padding-bottom: 1em;
+}
+
+h4 {
+  font-size: 1em;
+}
+
+/* Brand Yolks Chart */ 
+
+.chart {
+  max-width: 750px;
+  margin: auto;
+  margin-top: 100px;
+}
+
+svg {
+  margin: 10px;
+  
+}
+
+.productLabel {
+  font-size: .5em;
+  text-transform: uppercase;
+}
+
+.store {
+  baseline-shift: -150%;
+  font-size: .6em;
+  font-style: italic;
+}
+
+circle {
+  fill: none;
+}
+
+.none {
+  stroke: none; /* this erases all circles where the label doesn't say anything about that thing, but doesn't erase them entirely */ 
+}
+
+
+/* Legend */ 
+
+#legend-title {
+  text-align: center;
+  font-size: 3em;
+}
+
+#legend-container {
+  width: 230px;
+  position: fixed;
+  z-index: 1;
+  top: 20px;
+  right: 20px;
+  background: white;
+  overflow-x: hidden;
+  overflow-y: hidden;
+  padding: 20px;
+  font-size: .5em;
+  
+}
+
+/* MEANING - SVG rectangles in the legend */ 
+
+.legendText {
+  font-size: 1.7em;
+  
+}
+
+.leg-Good {
+ fill: #FED200;
+}
+
+.leg-Neutral {
+  fill: #B1D4CE;
+}
+
+.leg-Bad {
+ fill: #4C6375;
+}
+
+.leg-Misleading {
+  fill: #FA8C00;
+}
+
+/* KEYWORD - SVG arcs in the legend */ 
+
+#legend-labels {
+  padding: 2px;
+}
+.leglabel {
+  font-size: .8em;
+  font-family:Nunito-Light,Nunito;
+  font-weight:300;
+}
+.leglabel-big {
+  font-size: 1.1em;
+  font-family:Nunito;
+}
+.cls-12 {
+  fill:none;
+  stroke:#000;
+  stroke-miterlimit:10;
+}
+
+
+
+/* Toggles */ 
+
+#toggle-container {
+  width: 20%;
+  position: fixed;
+  z-index: 1;
+  top: 20px;
+  right: 20px;
+  background: white;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  padding: 20px;
+  font-size: .5em;
+  
+}
+
+.switch-field {
+	display: flex;
+	margin-bottom: 20px;
+	overflow: hidden;
+}
+
+.switch-field input {
+	position: absolute !important;
+	clip: rect(0, 0, 0, 0);
+	height: 1px;
+	width: 1px;
+	border: 0;
+	overflow: hidden;
+}
+
+.switch-field label {
+	background-color: #e4e4e4;
+	color: rgba(0, 0, 0, 0.6);
+	font-size: 1em;
+	line-height: 1;
+	text-align: center;
+	padding: 8px;
+	border: 1px solid rgba(0, 0, 0, 0.2);
+	box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.3), 0 1px rgba(255, 255, 255, 0.1);
+	transition: all 0.1s ease-in-out;
+}
+
+.switch-field label:hover {
+	cursor: pointer;
+}
+
+.switch-field input:checked + label {
+	background-color: #FED200;
+	box-shadow: none;
+}
+
+.switch-field label:first-of-type {
+	border-radius: 4px 0 0 4px;
+}
+
+.switch-field label:last-of-type {
+	border-radius: 0 4px 4px 0;
+}
+
