@@ -10,6 +10,8 @@ body{
 #content{
     font-family: serif;
     width: 500px;
+    padding-left: 30px;
+    padding-right: 30px;
     text-align: center;
     font-size: 20px;
     color: rgb(87, 87, 87);
@@ -17,6 +19,7 @@ body{
 }
 
 #header{
+    padding-top: 30px;
     font-family: 'Times New Roman', Times, serif;
     text-align: center;
     color: rgb(78, 62, 62);
