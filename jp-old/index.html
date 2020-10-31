@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+        <link rel="stylesheet" type="text/css" href="./style/style.css">
+        <script src="lib/d3.js"></script>
+</head>
+    <body>
+
+        <div id="navbar">
+            <svg id="circle"></svg>
+            <a href="./index.html">Home</a>
+            <a href="./link/source/source.html">Source</a>
+            <a href="./link/contact/contact.html">Contact me</a>
+            <div><a href="http://www.jma.go.jp/jma/indexe.html">Japan Meteorological Agency</a></div>
+        </div>
+
+        <div id="header">
+            <h1>Japan Earthquake 2001-2018</h1>
+        </div>
+
+        <div id="container">
+            <div class="item-1"> 
+                <h2>Introduce</h2>
+                <p>Japan, "the land of the rising sun", is a highly developed capitalist country in Asia despite its small size.<br/>
+                    But this island nation on the western coast of the Pacific Ocean, with four large islands and 6,800 smaller ones, is known as the land of a thousand islands.<br/>
+                    But Japan has been plagued by earthquakes and tsunamis.
+                </p>
+
+                <img src="./src/map.jpg">
+
+                <p>
+                    By maps, Japan in the Pacific northwest, the eastern part of Eurasia, is a four including Hokkaido, Honshu, Shikoku, and Kyushu island and other more than 6800 small islands "thousand island country".<br/>
+                    At the same time also is a mountainous country, the central mountain ridge shape distribution in Japan.<br/>
+                    Japan's territory segmentation of on one side of the Pacific Ocean and the seaside, so mountainous and hilly area of Japan is very big.<br/>
+                    But most of these mountains are volcanic (Japan has the world one over ten of the total), the highest of which is Mount Fuji (also a volcano).
+                </p>
+
+                <h2>Why is Japan prone to earthquakes?</h2>
+                <p>
+                    Japan sits on the most active seismic belt in the world, the Pacific ring of earthquakes.<br/>
+                    Earthquake, also known as ground motion, ground vibration, is the crust of the rapid release of energy caused by the process of vibration, during the earthquake waves that will produce a natural phenomenon. <br/>
+                    The main cause of earthquakes is the collision between the plates and the edges of the plates.<br/>
+                    Earthquake began to occur at the site known as the source, the source is above the ground known as the epicenter. <br/>
+                    The ground of destructive earthquake vibration is the strongest place called extremely seismic area, extremely seismic area is often the epicenter of the area. <br/>
+                    Earthquake often cause serious casualties, can cause fire, flood, toxic gas leakage, bacteria, and radioactive materials spread, may also cause tsunami, landslide, collapse, cracks and other secondary disasters.<br/>
+                    According to statistics, the earth every year about more than 5 million earthquakes, that is, every day to have tens of thousands of earthquakes. <br/>
+                    Most are too small or too far away to be felt; There are about ten or twenty earthquakes that can cause serious harm to human beings. <br/>
+                    There are about one or two earthquakes that can cause particularly severe damage. <br/>
+                    Earthquakes that cannot be felt must be recorded with seismometers. Different types of seismometers can record earthquakes of different intensities at different distances. <br/>
+                    Thousands of different kinds of seismic instruments operate around the world to monitor the movement of earthquakes day and night.<br/>
+                </p>
+
+
+
+
+                <div>
+
+                    <div id="select">select a year to see what's going on
+                        <select name="yourName" id="selectYear" type="range" step=1>
+                        <option value="2018" >2018</option>
+                        <option value="2017" >2017</option>
+                        <option value="2016" >2016</option>
+                        <option value="2015" >2015</option>
+                        <option value="2014" >2014</option>
+                        <option value="2013" >2013</option>
+                        <option value="2012" >2012</option>                        
+                        <option value="2011" >2011</option>     
+                        <option value="2010" >2010</option>
+                        <option value="2009" >2009</option>
+                        <option value="2008" >2008</option>  
+                        <option value="2007" >2007</option>
+                        <option value="2006" >2006</option>
+                        <option value="2005" >2005</option>
+                        <option value="2004" >2004</option>
+                        <option value="2003" >2003</option>
+                        <option value="2002" >2002</option>
+                        <option value="2001" >2001</option>                   
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+         <div class="item-2">
+            <div id="chart" ><p>Each red dot represents an earthquake that occurred in Japan.<br/>
+                Obviously their locations are not random.<br/>
+                By comparing earthquake location maps of different years, it is not difficult to see that Japan is in the <a href="https://en.wikipedia.org/wiki/Ring_of_Fire">Ring of Fire.</a></p></div>
+         </div>
+
+
+     </div>
+     <div>
+         <p>Designed by Yue Zhang</p>
+         <p>November  26, 2019</p>
+     </div>
+
+
+
+
+        <script src="./script.js"></script>
+    </body>
+</html>
